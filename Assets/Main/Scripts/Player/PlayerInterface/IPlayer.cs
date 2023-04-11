@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IPlayer : MonoBehaviour
 {
-    public void Test()
+    public void ITest()
     {
         Debug.Log("Hey there!");
     }
@@ -12,19 +12,20 @@ public class IPlayer : MonoBehaviour
     public class Player
     {
         //Player's modifiable values
-        public static float JumpHeight;
-        public static float MovementSpeed;
+        private static float JumpHeight;
+        private static float MovementSpeed;
 
         //Static stuff
-        public static PlayerScript script;
+        private static PlayerScript script;
         public static GameObject PlayerObject;
-        public static Rigidbody2D rb;
-        public static Animator anim;
-        public static SpriteRenderer srenderer;
+        private static Rigidbody2D rb;
+        private static Animator anim;
+        private static SpriteRenderer srenderer;
 
 
         //Dynamic values
-        public static float dir_x {get;set;}
+        private static float dir_x {get;set;}
+        //private enum anim_state { idle, running, jumping, falling };
 
         public static void GetPlayerObject()
         {
@@ -55,30 +56,28 @@ public class IPlayer : MonoBehaviour
         public static void Move()
         {
             rb.velocity = new Vector2(dir_x * MovementSpeed, rb.velocity.y);
-            Anim_Run();
+            PlayerAnimation.UpdateAnimState(anim, rb, dir_x, srenderer);
         }
 
-        public static void Jump()
+        private static void Jump()
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpHeight);
         }
 
-        public static void Anim_Run()
+        
+    }
+
+    private class PlayerAnimation : IPlayerAnimation
+    {
+        public static void anim_test()
         {
-            bool isRunning = dir_x != 0;
-            anim.SetBool("isRunning", isRunning);
-
-            if (isRunning)
-            {
-                bool isRunningLeft = dir_x < 0;
-                srenderer.flipX = isRunningLeft;
-            }
-
-
-
+            IPlayerAnimation.Testing();
         }
 
-        
+        public static void UpdateAnimState(Animator anim, Rigidbody2D rb, float dir_x, SpriteRenderer srenderer)
+        {
+            IPlayerAnimation.UpdateAnimState(anim, rb, dir_x, srenderer);
+        }
     }
 
     
