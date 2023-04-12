@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 361430333082313692}
   m_Layer: 0
   m_Name: FrogBoi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerJumpHeight: 9
   PlayerMovementSpeed: 9
+  PlayerJumpCount: 1
 --- !u!95 &361430333082313692
 Animator:
   serializedVersion: 5

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IPlayer : MonoBehaviour
+public class PlayerClass : MonoBehaviour
 {
     public void ITest()
     {
