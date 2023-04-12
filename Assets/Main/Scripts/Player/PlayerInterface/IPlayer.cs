@@ -14,6 +14,7 @@ public class IPlayer : MonoBehaviour
         //Player's modifiable values
         private static float JumpHeight;
         private static float MovementSpeed;
+        private static int JumpCount;
 
         //Static stuff
         private static PlayerScript script;
@@ -22,6 +23,7 @@ public class IPlayer : MonoBehaviour
         private static Animator anim;
         private static SpriteRenderer srenderer;
         private static BoxCollider2D collider;
+        private static int defaultJumpCount;
 
 
         //Dynamic values
@@ -40,6 +42,8 @@ public class IPlayer : MonoBehaviour
             //Get values
             JumpHeight = script.PlayerJumpHeight;
             MovementSpeed = script.PlayerMovementSpeed;
+            JumpCount = script.PlayerJumpCount;
+            defaultJumpCount = JumpCount;
         }
 
         public static void GetHorizontalInput()
@@ -49,6 +53,7 @@ public class IPlayer : MonoBehaviour
 
         public static void GetJumpInput()
         {
+            ResetJumpCount();
             if (Input.GetButtonDown("Jump"))
             {
                 Jump();
@@ -65,9 +70,24 @@ public class IPlayer : MonoBehaviour
         {
             if (!PlayerInteraction.isGrounded(collider))
             {
-                return;
+                bool stillHaveMidAirJump = JumpCount > 0;
+                if (stillHaveMidAirJump)
+                {
+                    JumpCount -= 1;
+                }else
+                {
+                    return;
+                }
             }
             rb.velocity = new Vector2(rb.velocity.x, JumpHeight);
+        }
+
+        private static void ResetJumpCount()
+        {
+            if (PlayerInteraction.isGrounded(collider))
+            {
+                JumpCount = defaultJumpCount;
+            }
         }
 
         

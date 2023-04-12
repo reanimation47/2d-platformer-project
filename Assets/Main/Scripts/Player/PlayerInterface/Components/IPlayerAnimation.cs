@@ -24,9 +24,13 @@ public interface IPlayerAnimation
             srenderer.flipX = isRunningLeft;
         }
 
-        if (vertical_velocity != 0)
+        if (rb.velocity.y > 0.01f)
         {
-            state = (vertical_velocity > 0.01f) ? anim_state.jumping : anim_state.falling;
+            state = anim_state.jumping;
+        }
+        else if (rb.velocity.y < -0.01f)
+        {
+            state = anim_state.falling;
         }
 
         anim.SetInteger("state", (int)state);

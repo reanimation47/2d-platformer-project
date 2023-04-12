@@ -9,6 +9,7 @@ public class PlayerScript : IPlayer
     //Public values
     public float PlayerJumpHeight = 9f;
     public float PlayerMovementSpeed = 9f;
+    public int PlayerJumpCount = 1; //How many times player could jump mid air
 
 
 
