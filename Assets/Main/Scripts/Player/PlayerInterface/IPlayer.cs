@@ -21,6 +21,7 @@ public class IPlayer : MonoBehaviour
         private static Rigidbody2D rb;
         private static Animator anim;
         private static SpriteRenderer srenderer;
+        private static BoxCollider2D collider;
 
 
         //Dynamic values
@@ -34,6 +35,7 @@ public class IPlayer : MonoBehaviour
             rb = PlayerObject.GetComponent<Rigidbody2D>();
             anim = PlayerObject.GetComponent<Animator>();
             srenderer = PlayerObject.GetComponent<SpriteRenderer>();
+            collider = PlayerObject.GetComponent<BoxCollider2D>();
 
             //Get values
             JumpHeight = script.PlayerJumpHeight;
@@ -61,6 +63,10 @@ public class IPlayer : MonoBehaviour
 
         private static void Jump()
         {
+            if (!PlayerInteraction.isGrounded(collider))
+            {
+                return;
+            }
             rb.velocity = new Vector2(rb.velocity.x, JumpHeight);
         }
 
@@ -80,6 +86,13 @@ public class IPlayer : MonoBehaviour
         }
     }
 
+    private class PlayerInteraction: IPlayerInteraction
+    {
+        public static bool isGrounded(BoxCollider2D collider)
+        {
+            return IPlayerInteraction.isGrounded(collider);
+        }
+    }
     
 
 
