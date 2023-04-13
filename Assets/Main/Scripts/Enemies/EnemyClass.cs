@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemyClass : MonoBehaviour
 {
+    private string defaultPlayerTag = "Player";
     public GameObject GetPlayer()
     {
-        return GameObject.FindWithTag("Player");
+        return GameObject.FindWithTag(defaultPlayerTag);
     }
 
     public GameObject[] GetPlayers()
     {
-        return GameObject.FindGameObjectsWithTag("Player");
+        return GameObject.FindGameObjectsWithTag(defaultPlayerTag);
     }
 }
