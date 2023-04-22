@@ -36,7 +36,7 @@ public class DuckScript : MonoBehaviour
         float distance_x = player_x - duck_x;
         float distance_y = player_y - duck_y;
 
-        if (distance_y < 2 )
+        if (distance_y < 1.5f )
         {
             rb.velocity = new Vector2(distance_x, 0);
 
