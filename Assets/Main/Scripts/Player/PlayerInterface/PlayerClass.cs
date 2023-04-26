@@ -97,7 +97,7 @@ public class PlayerClass : MonoBehaviour
             if (IPlayerInteraction.CollidedWithAnObstacle(collision))
             {
                 Debug.Log("hit!!");
-                //IPlayerAnimation.ToggleAnimTrigger(anim, "killed");
+                rb.isKinematic = true; //freeze player position
                 return 0;
             }else
             {
