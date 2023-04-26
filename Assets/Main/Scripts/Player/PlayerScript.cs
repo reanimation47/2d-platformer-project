@@ -31,6 +31,11 @@ public class PlayerScript : PlayerClass
         Player.Move();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
 
 
 
