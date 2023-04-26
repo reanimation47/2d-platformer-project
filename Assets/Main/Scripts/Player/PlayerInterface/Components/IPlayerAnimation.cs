@@ -35,4 +35,9 @@ public interface IPlayerAnimation
 
         anim.SetInteger("state", (int)state);
     }
+
+    public static void ToggleAnimTrigger(Animator anim, string trigger)
+    {
+        anim.SetTrigger(trigger);
+    }
 }

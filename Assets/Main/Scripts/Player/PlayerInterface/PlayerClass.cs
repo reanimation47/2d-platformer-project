@@ -24,6 +24,7 @@ public class PlayerClass : MonoBehaviour
         private static SpriteRenderer srenderer;
         private static BoxCollider2D collider;
         private static int defaultJumpCount;
+        private static string obstacleTag;
 
 
         //Dynamic values
@@ -44,6 +45,7 @@ public class PlayerClass : MonoBehaviour
             MovementSpeed = script.PlayerMovementSpeed;
             JumpCount = script.PlayerJumpCount;
             defaultJumpCount = JumpCount;
+            //obstacleTag = script.ObstacleTag;
         }
 
         public static void GetHorizontalInput()
@@ -63,12 +65,12 @@ public class PlayerClass : MonoBehaviour
         public static void Move()
         {
             rb.velocity = new Vector2(dir_x * MovementSpeed, rb.velocity.y);
-            PlayerAnimation.UpdateAnimState(anim, rb, dir_x, srenderer);
+            IPlayerAnimation.UpdateAnimState(anim, rb, dir_x, srenderer);
         }
 
         private static void Jump()
         {
-            if (!PlayerInteraction.isGrounded(collider))
+            if (!IPlayerInteraction.isGrounded(collider))
             {
                 bool stillHaveMidAirJump = JumpCount > 0;
                 if (stillHaveMidAirJump)
@@ -84,38 +86,39 @@ public class PlayerClass : MonoBehaviour
 
         private static void ResetJumpCount()
         {
-            if (PlayerInteraction.isGrounded(collider))
+            if (IPlayerInteraction.isGrounded(collider))
             {
                 JumpCount = defaultJumpCount;
             }
         }
 
+        public static int CheckOnCollision(Collision2D collision)
+        {
+            if (IPlayerInteraction.CollidedWithAnObstacle(collision))
+            {
+                Debug.Log("hit!!");
+                //IPlayerAnimation.ToggleAnimTrigger(anim, "killed");
+                return 0;
+            }else
+            {
+                return 1;
+            }
+        }
+
+        public static void ToggleAnimTrigger(string trigger)
+        {
+            IPlayerAnimation.ToggleAnimTrigger(anim, trigger);
+        }
+
+        public static void Killed()
+        {
+            Destroy(PlayerObject);
+        }
+
+
+     
+
         
     }
-
-    private class PlayerAnimation : IPlayerAnimation
-    {
-        public static void anim_test()
-        {
-            IPlayerAnimation.Testing();
-        }
-
-        public static void UpdateAnimState(Animator anim, Rigidbody2D rb, float dir_x, SpriteRenderer srenderer)
-        {
-            IPlayerAnimation.UpdateAnimState(anim, rb, dir_x, srenderer);
-        }
-    }
-
-    private class PlayerInteraction: IPlayerInteraction
-    {
-        public static bool isGrounded(BoxCollider2D collider)
-        {
-            return IPlayerInteraction.isGrounded(collider);
-        }
-
-        
-    }
-    
-
 
 }

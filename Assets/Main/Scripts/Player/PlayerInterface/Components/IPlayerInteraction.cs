@@ -6,6 +6,7 @@ public interface IPlayerInteraction
 {
     //Default values
     private static string defaultGroundLayer = "Ground";
+    private static string defaultObstacleTag = "Obstacle";
 
 
     public static bool isGrounded(BoxCollider2D collider)
@@ -14,5 +15,8 @@ public interface IPlayerInteraction
         return Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.1f, groundLayer); //Creating a boxcast with the position & size as the collider's
     }
 
-    
+    public static bool CollidedWithAnObstacle(Collision2D collision)
+    {
+        return collision.gameObject.CompareTag(defaultObstacleTag);
+    }
 }
