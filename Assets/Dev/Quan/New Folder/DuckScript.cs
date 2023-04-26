@@ -14,7 +14,12 @@ public class DuckScript : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
-        player_transform = player.GetComponent<Transform>();
+
+        if (player)
+        {
+            player_transform = player.GetComponent<Transform>();
+        }
+        
 
 
     }
@@ -27,6 +32,7 @@ public class DuckScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!player) { return; }
         float duck_x = transform.position.x;
         float player_x = player_transform.position.x;
 
