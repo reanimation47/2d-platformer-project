@@ -39,14 +39,22 @@ public class DuckScript : MonoBehaviour
         float distance_x = player_x - duck_x;
 
 
-        rb.velocity = new Vector2(distance_x, 0);
+        rb.velocity = new Vector2(distance_x, rb.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == player)
         {
-            ICommon.KillPlayer();
+            int collide_state = ICommon.GetCollisionDirection(collision);
+            if (collide_state == 0)
+            {
+                ICommon.KillPlayer();
+            }else if (collide_state ==1)
+            {
+                Destroy(gameObject);
+            }
+            //
         }
     }
 }

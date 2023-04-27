@@ -22,7 +22,8 @@ public class PlayerClass : MonoBehaviour
         private static Rigidbody2D rb;
         private static Animator anim;
         private static SpriteRenderer srenderer;
-        private static BoxCollider2D collider;
+        //private static BoxCollider2D collider;
+        private static CapsuleCollider2D collider;
         private static int defaultJumpCount;
         private static string obstacleTag;
 
@@ -41,7 +42,8 @@ public class PlayerClass : MonoBehaviour
             rb = PlayerObject.GetComponent<Rigidbody2D>();
             anim = PlayerObject.GetComponent<Animator>();
             srenderer = PlayerObject.GetComponent<SpriteRenderer>();
-            collider = PlayerObject.GetComponent<BoxCollider2D>();
+            //collider = PlayerObject.GetComponent<BoxCollider2D>();
+            collider = PlayerObject.GetComponent<CapsuleCollider2D>();
 
             //Get values
             JumpHeight = script.PlayerJumpHeight;

@@ -31948,6 +31948,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756576585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3883547944634055026, guid: c8d2e35c301b8447cbd68e9a51a9e35b, type: 3}
+  m_PrefabInstance: {fileID: 2075826284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &756576592
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756576585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012229681, y: -0.3954264}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &839321852
 GameObject:
   m_ObjectHideFlags: 0
@@ -32112,7 +32133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225696689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -7.62, z: 0}
+  m_LocalPosition: {x: -2.03, y: -5.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32139,7 +32160,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1225696693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32153,7 +32174,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09773421, y: -0.16614842}
+  m_Offset: {x: 0.04007566, y: -0.22961712}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -32164,7 +32185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0545316, y: 1.9177032}
+  m_Size: {x: 1.2109056, y: 1.6299706}
   m_EdgeRadius: 0
 --- !u!114 &1225696694
 MonoBehaviour:
@@ -32233,5 +32254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3883547944634055030, guid: c8d2e35c301b8447cbd68e9a51a9e35b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3883547944634055030, guid: c8d2e35c301b8447cbd68e9a51a9e35b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8d2e35c301b8447cbd68e9a51a9e35b, type: 3}
