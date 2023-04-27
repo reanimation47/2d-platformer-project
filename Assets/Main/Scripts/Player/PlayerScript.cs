@@ -42,18 +42,25 @@ public class PlayerScript : PlayerClass
         int collisionState = Player.CheckOnCollision(collision);
         if (collisionState == 0)
         {
-            playerKilled = true;
-            Player.ToggleAnimTrigger("killed");
-            Invoke("DestroyPlayer", 0.5f);
+            KillPlayer();
         }
     }
 
 
     //Custom methods
+
+    public void KillPlayer()
+    {
+        playerKilled = true;
+        Player.ToggleAnimTrigger("killed");
+        Invoke("DestroyPlayer", 0.5f);
+    }
+
+
     private void InitPlayerObject()
     {
         if (playerKilled) { return; }
-        Player.PlayerObject = this.gameObject;
+        IPlayer.LoadPlayerObject(this.gameObject);
         Player.GetPlayerObject();
     }
 

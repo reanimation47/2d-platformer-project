@@ -33,6 +33,9 @@ public class PlayerClass : MonoBehaviour
 
         public static void GetPlayerObject()
         {
+            PlayerObject = IPlayer.GetPlayerObject();
+            
+
             //Get components
             script = PlayerObject.GetComponent<PlayerScript>();
             rb = PlayerObject.GetComponent<Rigidbody2D>();

@@ -13,7 +13,7 @@ public class DuckScript : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player");
+        player = ICommon.GetPlayerObject();
 
         if (player)
         {
@@ -40,5 +40,13 @@ public class DuckScript : MonoBehaviour
 
 
         rb.velocity = new Vector2(distance_x, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            ICommon.KillPlayer();
+        }
     }
 }

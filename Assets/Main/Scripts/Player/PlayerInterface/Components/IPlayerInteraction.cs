@@ -8,7 +8,10 @@ public interface IPlayerInteraction
     private static string defaultGroundLayer = "Ground";
     private static string defaultObstacleTag = "Obstacle";
 
+    
 
+
+    //Checking states
     public static bool isGrounded(BoxCollider2D collider)
     {
         LayerMask groundLayer = LayerMask.GetMask(defaultGroundLayer);
