@@ -14,7 +14,7 @@ Obstacles and monsters spawn more and more with increasing difficulty until the 
 (the game ends)
 
 
-Furthermore,this game allow user customize the character. Each character will have different attributes (movement speed, ..) & special abilities (double jump, dash, ... 
+Furthermore, this game will allow user to play with different characters. Each character will have different attributes (movement speed, ..) & special abilities (double jump, dash, ... 
 
 
 ## Technology
