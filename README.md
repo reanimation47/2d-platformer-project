@@ -25,7 +25,3 @@ Applying the [CI/CD](https://game.ci) approach to development: Github Action and
 
 The Unity development environment itself has enough capabilities to manage & encapsulate dependencies.
 
-## Software Requirement
-
-- Unity 2021.3.22f1
-- [Unity license](https://github.com/reanimation47/2d-platformer-project/actions/workflows/activation.yml) for workflow and deployment (for the scope of this project)
