@@ -21,7 +21,7 @@ Furthermore,this game allow user customize the character. Each character will ha
 
 Framework/Game Engine: Unity (C#)
 
-Applying the [CI/CD](https://docs.gitlab.com/ee/ci/)  approach to development: Github Action and GameCI
+Applying the [CI/CD](https://game.ci) approach to development: Github Action and GameCI
 
 The Unity development environment itself has enough capabilities to manage & encapsulate dependencies.
 
