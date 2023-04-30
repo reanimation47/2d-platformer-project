@@ -8,6 +8,7 @@ public class TrunkBehaviour : MonoBehaviour
 
     Rigidbody2D myRigidbody;
 
+    public Animator trunkAnimator;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class TrunkBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        trunkAnimator.SetFloat("moveSpeed",Mathf.Abs(moveSpeed));
+
         if (IsFacingRight()) 
         {
             //Move right
