@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 361430333082313683}
   - component: {fileID: 361430333082313692}
   m_Layer: 0
-  m_Name: FrogBoi
+  m_Name: FrogBoi_v0
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
