@@ -37,7 +37,7 @@ public class TrunkBehaviour : MonoBehaviour
 
     private bool IsFacingRight()
     {
-        Debug.Log("hello");
+        Debug.Log("hello1");
         return transform.localScale.x > Mathf.Epsilon;
     }
 
