@@ -16,10 +16,16 @@ public class PlayerScript : PlayerClass
     private bool playerKilled = false;
 
     //Unity's method
-    private void Start()
+
+    private void Awake()
     {
         if (playerKilled) { return; }
         InitPlayerObject();
+    }
+
+    private void Start()
+    {
+        
         
     }
 
