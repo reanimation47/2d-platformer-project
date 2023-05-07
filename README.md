@@ -87,7 +87,9 @@ requestManualActivationFile:
 <p align="center">
   <img src="ReadmeAsset/a/addlicensetorep.png">
 </p>
+
 ### Config Workflow Initialization for automatic test part for branch changes
+
 - Using the [Unity - Test Runner](https://github.com/marketplace/actions/unity-test-runner)
 - Create [config](.github/workflows/test_runner.yml)
 - Config [test_runner.yml](.github/workflows/test_runner.yml)
