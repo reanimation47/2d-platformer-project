@@ -104,7 +104,7 @@ jobs:
           testMode:  ${{ matrix.testMode}}
           artifactsPath: ${{ matrix.testMode }}-artifacts
           checkName:  ${{ matrix.testMode }} Test Results
-          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+my.assembly.*' - uses: actions/upload-artifact@v2
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+my.assembly.*'
       - uses: actions/upload-artifact@v2 
         if: always()
         with: 
