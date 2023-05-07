@@ -57,8 +57,38 @@ requestManualActivationFile:
 - With  on: workflow_dispatch, it only run by manual
 - After initialating [activation.yml](.github/workflows/activation.yml) and pushing successfully to repository, the workflow will appear on Action
 
+<p align="center">
+  <img src="ReadmeAsset/a/unityl_getactivation.png">
+</p>
+
+- Active the workflow and Generate the Unity license 
+
+<p align="center">
+  <img src="ReadmeAsset/a/runflow.png">
+</p>
+
+- Download and unzip the license when the workflow finish
+
+<p align="center">
+  <img src="ReadmeAsset/a/uploadlicense.png">
+</p>
+
+<p align="center">
+    <img src="ReadmeAsset/a/license.png">
+</p>
+- Upload that license to https://license.unity3d.com/manual to activate it
+
+<p align="center">
+  <img src="ReadmeAsset/a/ManualActive.png">
+</p>
+
+- Waiting and download the actived license, then upload it to the repository:
+
+<p align="center">
+  <img src="ReadmeAsset/a/addlicensetorep.png">
+</p>
 ### Config Workflow Initialization for automatic test part for branch changes
-- Using the Unity - Test runner
+- Using the [Unity - Test Runner](https://github.com/marketplace/actions/unity-test-runner)
 - Create [config](.github/workflows/test_runner.yml)
 - Config [test_runner.yml](.github/workflows/test_runner.yml)
 
@@ -117,8 +147,47 @@ jobs:
           name:  Coverage results for ${{ matrix.testMode }} 
           path:  ${{ steps.tests.outputs.coveragePath }}
 ```
+- Notice in the trigger condition (can be changed, more optimized during development):
+```
+on:
+  push:
+    branches:
+    - main
+    - 'dev/**'
+    - 'releases/**'
+    pull_request:
+    branches:
+    - main
+    - 'releases/**'
+```
+- For example, when a member pushes commit “optimize enemy distance check” to their own branch, immediately post
+test will be triggered to test that change:
+
+<p align="center">
+  <img src="ReadmeAsset/b/inprocess.png">
+</p>
+
+- The completed test:
+
+<p align="center">
+  <img src="ReadmeAsset/b/completed.png">
+</p>
+
+- If the test fail:
+
+<p align="center">
+  <img src="ReadmeAsset/b/fail.png">
+</p>
+
+- The detail for addressing the problems:
+            
+<p align="center">
+  <img src="ReadmeAsset/b/faildetail.png">
+</p>
+
+
 ### Config Workflow Initialization for testing builded project 
-- Using the Unity - Builder
+- Using the [Unity - Builder](https://github.com/marketplace/actions/unity-builder)
 - Create [config](.github/workflows/build_runner.yml)
 - Config [build_runner.yml](.github/workflows/build_runner.yml)
 
@@ -167,3 +236,15 @@ on:
      - main 
      - 'releases/**'
 ```
+
+-  When a member creates a PR into a sub-branch in releases , the environment tests and test build are immediately triggered, and only when the tests are successful can they merge into that sub-branch:
+
+<p align="center">
+  <img src="ReadmeAsset/c/1.png">
+</p>
+
+- After all tests have been completed, the new PR can be merged into:
+
+<p align="center">
+  <img src="ReadmeAsset/c/2.png">
+</p>
