@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    [HideInInspector]public enum ButtonType {PlayButton, CharacterButton }
+    [HideInInspector] public enum ButtonType { PlayButton, CharacterButton, CharacterSelect }
+    [HideInInspector] public enum Character { Froggy, Dasher }
 
     public ButtonType _button_type;
+    public Character _character_select;
 
     public Image img;
     public Sprite _default, _clicked;
@@ -43,7 +45,7 @@ public class PlayButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHa
 
     private void ButtonClicked()
     {
-        if (_button_type == ButtonType.CharacterButton)
+        if (_button_type == ButtonType.CharacterButton || _button_type == ButtonType.CharacterSelect)
         {
             ICanvas.ToggleCharacterSelectionScreen();
         }
