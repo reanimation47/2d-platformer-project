@@ -32,21 +32,6 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         ButtonClicked();
     }
 
-    public void OnPointerEnter(PointerEventData e)
-    {
-        if (_button_type == ButtonType.CharacterSelect)
-        {
-            CharacterController.isOnHover(true);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData e)
-    {
-        if (_button_type == ButtonType.CharacterSelect)
-        {
-            CharacterController.isOnHover(false);
-        }
-    }
 
     void Update()
     {
@@ -78,7 +63,7 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     private void CharacterPicked()
     {
         
-        ICanvas.ToggleCharacterSelectionScreen();
+        //ICanvas.ToggleCharacterSelectionScreen();
     }
 
 }
