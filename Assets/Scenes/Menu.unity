@@ -1093,6 +1093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button_type: 0
   _character_select: 0
+  CharacterController: {fileID: 0}
   img: {fileID: 369959885}
   _default: {fileID: 21300000, guid: 1befe5ddf74e8495b8a90181526eae82, type: 3}
   _clicked: {fileID: 21300000, guid: f439e262c5c5b40689a73945fd18ec80, type: 3}
@@ -1110,6 +1111,7 @@ GameObject:
   - component: {fileID: 493775698}
   - component: {fileID: 493775697}
   - component: {fileID: 493775696}
+  - component: {fileID: 493775699}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1196,6 +1198,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493775694}
   m_CullTransparentMesh: 1
+--- !u!114 &493775699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493775694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8c21a94290246e5b28f76ac356c0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 493775696}
+  _character_select: 0
 --- !u!1 &744472807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button_type: 1
   _character_select: 0
+  CharacterController: {fileID: 0}
   img: {fileID: 820093183}
   _default: {fileID: 21300000, guid: 1befe5ddf74e8495b8a90181526eae82, type: 3}
   _clicked: {fileID: 21300000, guid: f439e262c5c5b40689a73945fd18ec80, type: 3}
@@ -1694,6 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button_type: 2
   _character_select: 0
+  CharacterController: {fileID: 493775699}
   img: {fileID: 1141255430}
   _default: {fileID: 21300000, guid: 1befe5ddf74e8495b8a90181526eae82, type: 3}
   _clicked: {fileID: 21300000, guid: f439e262c5c5b40689a73945fd18ec80, type: 3}
@@ -1817,6 +1835,7 @@ GameObject:
   - component: {fileID: 1258379007}
   - component: {fileID: 1258379006}
   - component: {fileID: 1258379005}
+  - component: {fileID: 1258379008}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1903,6 +1922,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258379003}
   m_CullTransparentMesh: 1
+--- !u!114 &1258379008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258379003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8c21a94290246e5b28f76ac356c0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1258379005}
+  _character_select: 1
 --- !u!1 &1351141431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,6 +2164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button_type: 2
   _character_select: 1
+  CharacterController: {fileID: 1258379008}
   img: {fileID: 1389818811}
   _default: {fileID: 21300000, guid: 1befe5ddf74e8495b8a90181526eae82, type: 3}
   _clicked: {fileID: 21300000, guid: f439e262c5c5b40689a73945fd18ec80, type: 3}
