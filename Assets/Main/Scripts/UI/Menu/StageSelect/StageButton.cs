@@ -36,4 +36,15 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
     {
         stage_hightlight.SetActive(_toggle);
     }
+
+    public void DebugIndex()
+    {
+        Debug.Log(stage_index);
+    }
+
+    public void ToggleStageUnlocked(bool _is_unlocked)
+    {
+        transform.Find("Unlocked").gameObject.SetActive(_is_unlocked);
+        transform.Find("Locked").gameObject.SetActive(!_is_unlocked);
+    }
 }
