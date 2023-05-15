@@ -18,6 +18,7 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         SetupStageIndex();
+        InitUnlockedExtraStage();
     }
 
     public void OnPointerDown(PointerEventData e)
@@ -27,6 +28,8 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
         IStage.RegisterHighlightedStage(this);
     }
 
+
+    //custom methods
     private void SetupStageIndex()
     {
         stage_index_object.GetComponent<TextMeshProUGUI>().text = stage_index.ToString();
@@ -46,5 +49,14 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
     {
         transform.Find("Unlocked").gameObject.SetActive(_is_unlocked);
         transform.Find("Locked").gameObject.SetActive(!_is_unlocked);
+    }
+
+    private void InitUnlockedExtraStage() // only for extra stages
+    {
+        if (button_type == ButtonType.Normal) { return; }
+
+        int _unlocked_index = IStage.GetCurrentUnlockedIndex();
+        bool _stage_unlocked = _unlocked_index >= stage_index;
+        ToggleStageUnlocked(_stage_unlocked);
     }
 }

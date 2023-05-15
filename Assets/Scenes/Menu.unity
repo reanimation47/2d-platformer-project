@@ -1813,6 +1813,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1882310847}
     m_Modifications:
+    - target: {fileID: 265724793715398239, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6265068256088660987, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1912,6 +1916,10 @@ PrefabInstance:
     - target: {fileID: 6265068257438659315, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265068257438659317, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
+      propertyPath: stage_index
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
@@ -2449,6 +2457,10 @@ PrefabInstance:
     - target: {fileID: 6265068256197087930, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265068256197087932, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
+      propertyPath: stage_index
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6265068256588935951, guid: 746a66dba25a2486c8d3aa6d07406d0a, type: 3}
       propertyPath: stage_index
@@ -3724,7 +3736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3ff873248f54c28874120885bb36f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalStages: []
+  StageButtons: []
 --- !u!1001 &1980281438
 PrefabInstance:
   m_ObjectHideFlags: 0

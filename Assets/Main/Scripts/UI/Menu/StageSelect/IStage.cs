@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IStage 
 {
+    //Monitoring highlighted stages
     private static StageButton _highlighted_stage = null;
     public static void RegisterHighlightedStage(StageButton _stage)
     {
@@ -18,5 +19,16 @@ public interface IStage
 
             RegisterHighlightedStage(_stage);
         }
+    }
+
+    //Stage Manager
+    private static StageManager StageManager;
+    public static void LoadStageManager(StageManager _stagemanager)
+    {
+        StageManager = _stagemanager;
+    }
+    public static int GetCurrentUnlockedIndex()
+    {
+        return StageManager.GetCurrentUnlockedIndex();
     }
 }

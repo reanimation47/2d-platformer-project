@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    private int UnlockedIndex = 4; //placeholder for testing, will use PlayPrefs to store this in the future
+    private int UnlockedIndex = 3; //placeholder for testing, will use PlayPrefs to store this in the future
     public List<StageButton> StageButtons;
+
+    private void Awake()
+    {
+        IStage.LoadStageManager(this);
+    }
+
     void Start()
     {
+        
         LoadStageButtons();
         SetupUnlockedStages();
     }
@@ -17,6 +24,8 @@ public class StageManager : MonoBehaviour
     {
         
     }
+
+    //custom methods
 
     private void LoadStageButtons()
     {
@@ -40,4 +49,11 @@ public class StageManager : MonoBehaviour
             }
         }
     }
+
+
+    //public methods for info
+    public int GetCurrentUnlockedIndex()
+    {
+        return UnlockedIndex;
+    }    
 }
