@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    [HideInInspector] public enum ButtonType { PlayButton, CharacterButton, CharacterSelect }
+    [HideInInspector] public enum ButtonType { PlayButton, CharacterSelect }
     [HideInInspector] public enum Character { Froggy, Dasher }
 
     public ButtonType _button_type;
@@ -48,7 +48,7 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     private void ButtonClicked()
     {
-        if (_button_type == ButtonType.CharacterButton)
+        if (_button_type == ButtonType.PlayButton)
         {
             ICanvas.ToggleCharacterSelectionScreen();
         }
