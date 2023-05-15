@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class StageButton : MonoBehaviour
+public class StageButton : MonoBehaviour, IPointerDownHandler
 {
     [HideInInspector] public enum ButtonType { Normal, Extra_Top, Extra_Bottom}
     public ButtonType button_type;
@@ -19,8 +20,20 @@ public class StageButton : MonoBehaviour
         SetupStageIndex();
     }
 
+    public void OnPointerDown(PointerEventData e)
+    {
+
+        //ToggleStageHighlight(true);
+        IStage.RegisterHighlightedStage(this);
+    }
+
     private void SetupStageIndex()
     {
         stage_index_object.GetComponent<TextMeshProUGUI>().text = stage_index.ToString();
+    }
+
+    public void ToggleStageHighlight(bool _toggle)
+    {
+        stage_hightlight.SetActive(_toggle);
     }
 }
