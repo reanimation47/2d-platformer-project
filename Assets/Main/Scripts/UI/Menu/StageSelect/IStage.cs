@@ -31,4 +31,16 @@ public interface IStage
     {
         return StageManager.GetCurrentUnlockedIndex();
     }
+
+    //PopupController
+    private static PopupController PopupController;
+    public static void LoadPopupController(PopupController _controller)
+    {
+        PopupController = _controller;
+    }
+
+    public static void TogglePopup(bool _toggle)
+    {
+        PopupController.TogglePopup(_toggle);
+    }
 }
