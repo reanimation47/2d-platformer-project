@@ -8,7 +8,7 @@ public class pig : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private GameObject player;
     private Transform player_transform;
-    public Animator PigAnimator;
+    public Animator AngryPig;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class pig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PigAnimator.SetFloat("moveSpeed", Mathf.Abs(moveSpeed));
+        AngryPig.SetFloat("moveSpeed", Mathf.Abs(moveSpeed));
 
         if (IsFacingRight())
         {
@@ -74,7 +74,7 @@ public class pig : MonoBehaviour
 
     IEnumerator Pigdies()
     {
-        PigAnimator.SetTrigger("Die");
+        AngryPig.SetTrigger("Die");
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }

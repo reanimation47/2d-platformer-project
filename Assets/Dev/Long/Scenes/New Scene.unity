@@ -4476,15 +4476,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70435134244519878, guid: 4484115b461584b0ca4383f02c2d7960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.97
+      value: -17.6
       objectReference: {fileID: 0}
     - target: {fileID: 70435134244519878, guid: 4484115b461584b0ca4383f02c2d7960, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.31
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 70435134244519878, guid: 4484115b461584b0ca4383f02c2d7960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 70435134244519878, guid: 4484115b461584b0ca4383f02c2d7960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37490,6 +37490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556f63fd4fcba4e4b8e3725a9e045c7b, type: 3}
+--- !u!4 &1754427194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
+  m_PrefabInstance: {fileID: 1450963521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1859681517
 GameObject:
   m_ObjectHideFlags: 0
@@ -37778,12 +37783,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039488233}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca4111b3fa2f5c244b873111d8190883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1754427194}
+--- !u!95 &2060592879 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3598457144995112254, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+  m_PrefabInstance: {fileID: 3598457144988995475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3598457144988995475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37838,6 +37848,26 @@ PrefabInstance:
     - target: {fileID: 3598457144995112249, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
       propertyPath: m_Name
       value: AngryPig
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112249, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112249, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112254, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581047996897554897, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: AngryPig
+      value: 
+      objectReference: {fileID: 2060592879}
+    - target: {fileID: 5581047996897554897, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
