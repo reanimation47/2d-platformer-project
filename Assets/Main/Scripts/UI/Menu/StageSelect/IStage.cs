@@ -20,6 +20,12 @@ public interface IStage
             RegisterHighlightedStage(_stage);
         }
     }
+    public static void DisableCurrentHighlightedStage()
+    {
+        if (_highlighted_stage == null) { return; }
+        _highlighted_stage.ToggleStageHighlight(false);
+        _highlighted_stage = null;
+    }
 
     //Stage Manager
     private static StageManager StageManager;
