@@ -37845,6 +37845,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112248, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_Size.x
+      value: 1.450161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112248, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.50822
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112248, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0078115463
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112248, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.14741075
+      objectReference: {fileID: 0}
     - target: {fileID: 3598457144995112249, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
       propertyPath: m_Name
       value: AngryPig
@@ -37861,6 +37877,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3598457144995112255, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5581047996897554897, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
       propertyPath: AngryPig
       value: 
@@ -37871,3 +37891,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+--- !u!1 &3598457144988995476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3598457144995112249, guid: 95ae8529465ae144fa3d5f1869d70e1c, type: 3}
+  m_PrefabInstance: {fileID: 3598457144988995475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &3598457144988995477
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598457144988995476}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.9713912, y: -0.6621325}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.25, y: 1.875}
+    newSize: {x: 2.25, y: 1.875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25963688, y: 0.9948001}
+  m_EdgeRadius: 0
