@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCardController : MonoBehaviour
 {
-    private int StarsCount = 2;
+    private int StarsCount = 4;
     public List<GameObject> Stars;
 
     private void Awake()
