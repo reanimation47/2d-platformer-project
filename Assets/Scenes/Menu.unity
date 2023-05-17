@@ -1913,6 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b01417f4d19419782fd3bb438a97a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyCardsParent: {fileID: 287153635}
   EnemyCards:
   - {fileID: 785312429}
   - {fileID: 941459218}

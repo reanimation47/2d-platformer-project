@@ -6,6 +6,7 @@ public class PopupController : MonoBehaviour
 {
 
     //Enemy Cards
+    public GameObject EnemyCardsParent;
     public List<GameObject> EnemyCards;
 
 
