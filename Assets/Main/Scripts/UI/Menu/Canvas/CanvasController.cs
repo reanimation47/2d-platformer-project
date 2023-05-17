@@ -26,6 +26,11 @@ public class CanvasController : MonoBehaviour
         _default_mainmenu_pos = MainMenu.transform.position;
     }
 
+    private void Start()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
+
     private void Update()
     {
         UpdateMainMenuPosition();
