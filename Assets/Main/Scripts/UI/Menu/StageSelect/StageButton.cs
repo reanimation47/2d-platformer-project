@@ -73,4 +73,10 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
             IStage.RegisterHighlightedStage(this);
         }
     }
+
+    //public methods for info
+    public int GetStageIndex()
+    {
+        return stage_index;
+    }
 }

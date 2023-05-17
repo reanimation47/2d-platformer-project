@@ -7,6 +7,14 @@ public class StageManager : MonoBehaviour
     private int UnlockedIndex = 3; //placeholder for testing, will use PlayPrefs to store this in the future
     public List<StageButton> StageButtons;
 
+    public Dictionary<int, List<int>> StagesInfo = new Dictionary<int, List<int>>()
+    {
+        {1, new List<int>() {0} },
+        {2, new List<int>() {1,2} },
+        {3, new List<int>() {2,3} },
+        {4, new List<int>() {3,4} }
+    };
+
     private void Awake()
     {
         IStage.LoadStageManager(this);
@@ -55,5 +63,10 @@ public class StageManager : MonoBehaviour
     public int GetCurrentUnlockedIndex()
     {
         return UnlockedIndex;
-    }    
+    }
+
+    public List<int> GetIndexedStageEnemyInfo(int index)
+    {
+        return StagesInfo[index];
+    }
 }

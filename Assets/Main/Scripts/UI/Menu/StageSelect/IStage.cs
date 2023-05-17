@@ -26,6 +26,11 @@ public interface IStage
         _highlighted_stage.ToggleStageHighlight(false);
         _highlighted_stage = null;
     }
+    public static int GetCurrentHighlightedStageIndex()
+    {
+        if (_highlighted_stage == null) { return 0; }
+        return _highlighted_stage.GetStageIndex();
+    }
 
     //Stage Manager
     private static StageManager StageManager;
@@ -36,6 +41,10 @@ public interface IStage
     public static int GetCurrentUnlockedIndex()
     {
         return StageManager.GetCurrentUnlockedIndex();
+    }
+    public static List<int> GetIndexedStageEnemyInfo(int index)
+    {
+        return StageManager.GetIndexedStageEnemyInfo(index);
     }
 
     //PopupController

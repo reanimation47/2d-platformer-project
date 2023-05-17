@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PopupController : MonoBehaviour
 {
+
+    //Enemy Cards
+    public List<GameObject> EnemyCards;
+
+
+    //Popup positioning
     private Vector3 popup_positioner = new Vector3(0, 0, 0);
     private Vector3 popup_positioner_default = new Vector3(0, 0, 0);
     private float popup_target_x = 0;
     private bool popup_shown = false;
     RectTransform rectTransform;
+
+
     private void Awake()
     {
         IStage.LoadPopupController(this);
@@ -35,6 +43,7 @@ public class PopupController : MonoBehaviour
     {
         if (_toggle)
         {
+            ReloadPopupInfo();
             popup_target_x = 0;
         }else
         {
@@ -42,5 +51,25 @@ public class PopupController : MonoBehaviour
         }
         popup_shown = _toggle;
 
+    }
+
+    private void ReloadPopupInfo()
+    {
+        DisableAllEnemyCards();
+        int current_index = IStage.GetCurrentHighlightedStageIndex();
+        List<int> enemy_types = IStage.GetIndexedStageEnemyInfo(current_index);
+
+        foreach (int enemy_type in enemy_types)
+        {
+            EnemyCards[enemy_type].SetActive(true);
+        }
+    }
+
+    private void DisableAllEnemyCards()
+    {
+        foreach (GameObject card in EnemyCards)
+        {
+            card.SetActive(false);
+        }
     }
 }
