@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PopupController : MonoBehaviour
 {
+
+    //Title
+    public TextMeshProUGUI Title;
 
     //Enemy Cards
     public GameObject EnemyCardsParent;
@@ -56,14 +60,24 @@ public class PopupController : MonoBehaviour
 
     private void ReloadPopupInfo()
     {
+        SetStageTitle();
         DisableAllEnemyCards();
-        int current_index = IStage.GetCurrentHighlightedStageIndex();
-        List<int> enemy_types = IStage.GetIndexedStageEnemyInfo(current_index);
+        SwipeCardsParent();
+        EnableEnemyCards();
+    }
 
-        foreach (int enemy_type in enemy_types)
+    private void SetStageTitle()
+    {
+        int current_index = IStage.GetCurrentHighlightedStageIndex();
+        if (current_index >999)
         {
-            EnemyCards[enemy_type].SetActive(true);
+            Title.text = "Stage " + (current_index/1000).ToString() + "\n<color=red>Endless</color>";
         }
+        else
+        {
+            Title.text = "Stage " + current_index.ToString();
+        }
+        
     }
 
     private void DisableAllEnemyCards()
@@ -71,6 +85,22 @@ public class PopupController : MonoBehaviour
         foreach (GameObject card in EnemyCards)
         {
             card.SetActive(false);
+        }
+    }
+
+    private void SwipeCardsParent()
+    {
+        EnemyCardsParent.transform.localPosition = new Vector3(400, 0, 0);
+    }
+
+    private void EnableEnemyCards()
+    {
+        int current_index = IStage.GetCurrentHighlightedStageIndex();
+        List<int> enemy_types = IStage.GetIndexedStageEnemyInfo(current_index);
+
+        foreach (int enemy_type in enemy_types)
+        {
+            EnemyCards[enemy_type].SetActive(true);
         }
     }
 }

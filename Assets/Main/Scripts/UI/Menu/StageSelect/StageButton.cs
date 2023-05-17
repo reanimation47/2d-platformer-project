@@ -77,6 +77,18 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
     //public methods for info
     public int GetStageIndex()
     {
-        return stage_index;
+        if (isExtraStage())
+        {
+            return stage_index * 1000;
+        }
+        else
+        {
+            return stage_index;
+        }
+    }
+
+    public bool isExtraStage()
+    {
+        return button_type == ButtonType.Extra_Bottom || button_type == ButtonType.Extra_Top;
     }
 }
