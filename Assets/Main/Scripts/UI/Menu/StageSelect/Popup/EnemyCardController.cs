@@ -14,7 +14,7 @@ public class EnemyCardController : MonoBehaviour
 
     private void Start()
     {
-        LoadStars();
+        //LoadStars();
     }
 
     private void DisableAllStars()
