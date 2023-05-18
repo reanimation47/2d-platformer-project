@@ -29,6 +29,7 @@ public class CanvasController : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     private void Update()
