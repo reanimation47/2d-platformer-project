@@ -2,11 +2,8 @@ name: Build project
 
 on:
   push:
-    branches:
-    - 'releases/**'
-  pull_request:
-    branches:
-    - 'releases/**'
+    tags:
+    - 'v*'
 
 jobs:
   buildForAllSupportedPlatforms:
@@ -39,6 +36,5 @@ jobs:
           path: build/${{ matrix.targetPlatform }}
       - name: Release with Notes
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: build/${{ matrix.targetPlatform }}
