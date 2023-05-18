@@ -2,15 +2,11 @@ name: Build project
 
 on:
   push:
-    branches:
-    - 'releases/**'
     tags:
-    - 'v*'
+      - "v*"
   pull_request:
     branches:
     - 'releases/**'
-    tags:
-    - 'v*'
 
 jobs:
   buildForAllSupportedPlatforms:
