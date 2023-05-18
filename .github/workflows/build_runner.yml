@@ -13,7 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-          - StandaloneWindows64 # Build a Windows 64-bit standalone.
           - Android # Build an Android .apk standalone app.
     steps:
       - uses: actions/checkout@v2
@@ -30,7 +29,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-      - name: Release with Notes
+      - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: build/${{ matrix.targetPlatform }}
+          files: build/Android/Android.apk
