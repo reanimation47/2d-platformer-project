@@ -34,3 +34,7 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
+      - name: Release with Notes
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/${{ matrix.targetPlatform }}
