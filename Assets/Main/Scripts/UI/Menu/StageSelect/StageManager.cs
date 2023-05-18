@@ -28,12 +28,6 @@ public class StageManager : MonoBehaviour
         SetupUnlockedStages();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //custom methods
 
     private void LoadStageButtons()
