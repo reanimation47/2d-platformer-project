@@ -2,8 +2,8 @@ name: Build project
 
 on:
   push:
-    tags:
-    - 'v0.0.0.1-alpha-test-autorelease'
+    branches:
+    - 'releases/**'
   pull_request:
     branches:
     - 'releases/**'
@@ -39,5 +39,6 @@ jobs:
           path: build/${{ matrix.targetPlatform }}
       - name: Release with Notes
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: build/${{ matrix.targetPlatform }}
