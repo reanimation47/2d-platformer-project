@@ -26,6 +26,11 @@ public class CanvasController : MonoBehaviour
         _default_mainmenu_pos = MainMenu.transform.position;
     }
 
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void Update()
     {
         UpdateMainMenuPosition();
