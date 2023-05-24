@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    private int UnlockedIndex = 3; //placeholder for testing, will use PlayPrefs to store this in the future
+    private int UnlockedIndex = 4; //placeholder for testing, will use PlayPrefs to store this in the future
     public List<StageButton> StageButtons;
 
     public Dictionary<int, List<int>> StagesInfo = new Dictionary<int, List<int>>()
@@ -12,7 +12,8 @@ public class StageManager : MonoBehaviour
         {1, new List<int>() {0} },
         {2, new List<int>() {1,2} },
         {3, new List<int>() {2,3} },
-        {4, new List<int>() {3,4} }
+        {3000, new List<int>() {0,1,2,3,4} }, //for extra stage of 3rd stage
+        {4, new List<int>() {3,4} },
     };
 
     private void Awake()
@@ -25,12 +26,6 @@ public class StageManager : MonoBehaviour
         
         LoadStageButtons();
         SetupUnlockedStages();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //custom methods
