@@ -4,49 +4,54 @@ using UnityEngine;
 
 public class TrunkBehaviour : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField]
+    float moveSpeed = 1f;
 
     private Rigidbody2D myRigidbody;
     private GameObject player;
     private Transform player_transform;
     public Animator trunkAnimator;
-    public GameObject bullet;
 
-    
+    // public GameObject bullet;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         player = ICommon.GetPlayerObject();
 
-        FireBullets();
-
-        
-
         if (player)
         {
             player_transform = player.GetComponent<Transform>();
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        trunkAnimator.SetFloat("moveSpeed",Mathf.Abs(moveSpeed));
+        trunkAnimator.SetFloat("moveSpeed", Mathf.Abs(moveSpeed));
 
-        if (IsFacingRight()) 
+        if (IsFacingRight())
         {
             //Move right
             myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
         }
-
-        else 
+        else
         {
             //Move left
             myRigidbody.velocity = new Vector2(moveSpeed, 0f);
         }
 
+        // Check if facing player horizontally
+        if (IsFacingPlayerHorizontally())
+        {
+            Debug.LogError("Detect player horizontally");
+            moveSpeed = 0;
+        }
+
+        // FireBullets();
     }
 
     //Patrolling logic
@@ -58,7 +63,10 @@ public class TrunkBehaviour : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Turn
-        transform.localScale = new Vector2(-(Mathf.Sign(-myRigidbody.velocity.x)),transform.localScale.y);
+        transform.localScale = new Vector2(
+            -(Mathf.Sign(-myRigidbody.velocity.x)),
+            transform.localScale.y
+        );
     }
 
     //Die logic
@@ -72,7 +80,8 @@ public class TrunkBehaviour : MonoBehaviour
             if (collide_state == 0)
             {
                 ICommon.KillPlayer();
-            }else if (collide_state ==1)
+            }
+            else if (collide_state == 1)
             {
                 //anim
                 //Destroy(gameObject);
@@ -88,26 +97,42 @@ public class TrunkBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // //Fire bullet logic
 
-    //Fire bullet logic
-    private void FireBullets()
+    private bool IsFacingPlayerHorizontally()
     {
-
-        StartCoroutine(CoFireBullets());
-    }
-
-    private IEnumerator CoFireBullets()
-    {
-        GameObject player = ICommon.GetPlayerObject();
-        while (player) //when player is still alive
+        if (player)
         {
-            GameObject _bullet = Instantiate(bullet, transform.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
+            float playerDirection = player.transform.position.x - transform.position.x;
+            float enemyDirection = transform.localScale.x;
 
-            Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>(); 
-            _bullet_rb.velocity = new Vector2(-50, 0); // give the spawned bullet some speed
-
-            yield return new WaitForSeconds(1f); 
+            return Mathf.Abs(playerDirection) < Mathf.Epsilon
+                && Mathf.Sign(playerDirection) == -Mathf.Sign(enemyDirection);
         }
-        
+
+        return false;
     }
+
+
+    
+    // private void FireBullets()
+    // {
+
+    //     StartCoroutine(CoFireBullets());
+    // }
+
+    // private IEnumerator CoFireBullets()
+    // {
+    //     GameObject player = ICommon.GetPlayerObject();
+    //     while (player) //when player is still alive
+    //     {
+    //         GameObject _bullet = Instantiate(bullet, transform.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
+
+    //         Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>();
+    //         _bullet_rb.velocity = new Vector2(-50, 0); // give the spawned bullet some speed
+
+    //         yield return new WaitForSeconds(1f);
+    //     }
+
+    // }
 }
