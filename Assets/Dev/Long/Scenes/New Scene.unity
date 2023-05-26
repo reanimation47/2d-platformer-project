@@ -69167,6 +69167,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2653890103386592469, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2653890103386592466, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
@@ -69324,11 +69328,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556f63fd4fcba4e4b8e3725a9e045c7b, type: 3}
---- !u!4 &1754427194 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-  m_PrefabInstance: {fileID: 1450963521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1794362631
 GameObject:
   m_ObjectHideFlags: 0
@@ -69460,7 +69459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4111b3fa2f5c244b873111d8190883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1754427194}
 --- !u!1001 &2052115069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69551,13 +69549,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1321204608136584664, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321204608136584664, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1550994311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321204608136584665, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: range
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321204608136584665, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321204608136584665, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: checkDelay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584665, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: playerLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 1321204608136584666, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584670, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_Name
       value: RockHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321204608136584670, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584671, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_RootOrder
@@ -69565,7 +69591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584671, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.45
+      value: -11.47
       objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584671, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_LocalPosition.y

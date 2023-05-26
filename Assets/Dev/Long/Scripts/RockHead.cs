@@ -14,6 +14,11 @@ public class RockHead : MonoBehaviour
     private bool attacking;
 
     private Vector3[] directions = new Vector3[4];  
+
+    private void OnEnable(){
+        Stop();
+    }
+
     private void Update()
     {
         if(attacking)
@@ -50,14 +55,21 @@ public class RockHead : MonoBehaviour
         directions[2] = transform.up * range;
         directions[3] = -transform.up * range;
     }
+    private void Stop(){
+        destination = transform.position;
+        attacking = false;
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
     {
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<PlayerScript>().KillPlayer();
-        }   
+        collision.GetComponent<PlayerScript>().KillPlayer();
     }
+    Stop();   
+}
+
 
 
 }
