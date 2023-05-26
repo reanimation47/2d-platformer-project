@@ -10,12 +10,17 @@ public class TrunkBehaviour : MonoBehaviour
     private GameObject player;
     private Transform player_transform;
     public Animator trunkAnimator;
+    public GameObject bullet;
+
     
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         player = ICommon.GetPlayerObject();
+
+        FireBullets();
+
         
 
         if (player)
@@ -44,6 +49,7 @@ public class TrunkBehaviour : MonoBehaviour
 
     }
 
+    //Patrolling logic
     private bool IsFacingRight()
     {
         return transform.localScale.x > Mathf.Epsilon;
@@ -55,6 +61,7 @@ public class TrunkBehaviour : MonoBehaviour
         transform.localScale = new Vector2(-(Mathf.Sign(-myRigidbody.velocity.x)),transform.localScale.y);
     }
 
+    //Die logic
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.LogError("Hit");
@@ -79,5 +86,28 @@ public class TrunkBehaviour : MonoBehaviour
         trunkAnimator.SetTrigger("Die");
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
+    }
+
+
+    //Fire bullet logic
+    private void FireBullets()
+    {
+
+        StartCoroutine(CoFireBullets());
+    }
+
+    private IEnumerator CoFireBullets()
+    {
+        GameObject player = ICommon.GetPlayerObject();
+        while (player) //when player is still alive
+        {
+            GameObject _bullet = Instantiate(bullet, transform.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
+
+            Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>(); 
+            _bullet_rb.velocity = new Vector2(-50, 0); // give the spawned bullet some speed
+
+            yield return new WaitForSeconds(1f); 
+        }
+        
     }
 }
