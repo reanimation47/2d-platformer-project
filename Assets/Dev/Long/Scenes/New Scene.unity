@@ -69163,6 +69163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2653890103386592469, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2653890103386592466, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
@@ -69547,6 +69551,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1321204608136584665, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584670, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_Name
       value: RockHead
@@ -69557,7 +69565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584671, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2325609
+      value: -8.45
       objectReference: {fileID: 0}
     - target: {fileID: 1321204608136584671, guid: 113ecd1f93706eb42ab96d1c3dddc436, type: 3}
       propertyPath: m_LocalPosition.y
