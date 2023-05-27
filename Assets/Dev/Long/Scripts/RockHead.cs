@@ -58,18 +58,21 @@ public class RockHead : MonoBehaviour
     private void Stop(){
         destination = transform.position;
         attacking = false;
-
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Player"))
+    
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.GetComponent<PlayerScript>().KillPlayer();
+        if (collision.gameObject == IPlayer.GetPlayerObject())
+    {
+            IPlayer.KillPlayer();
     }
-    Stop();   
-}
-
+    else 
+    {
+        Stop();
+    }
+    }
 
 
 }
