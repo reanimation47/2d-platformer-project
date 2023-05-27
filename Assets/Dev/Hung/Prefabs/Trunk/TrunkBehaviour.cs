@@ -105,9 +105,14 @@ public class TrunkBehaviour : MonoBehaviour
         {
             float playerDirection = player.transform.position.x - transform.position.x;
             float enemyDirection = transform.localScale.x;
+            bool x_axis_is_facing_towards_player = playerDirection > 0 != enemyDirection > 0;
 
-            return Mathf.Abs(playerDirection) < Mathf.Epsilon
-                && Mathf.Sign(playerDirection) == -Mathf.Sign(enemyDirection);
+            float y_diff = player.transform.position.y - transform.position.y;
+            bool is_on_same_y_as_player = Mathf.Abs(y_diff) < 2;
+
+            return x_axis_is_facing_towards_player && is_on_same_y_as_player;
+            //return Mathf.Abs(playerDirection) < Mathf.Epsilon
+            //    && Mathf.Sign(playerDirection) == -Mathf.Sign(enemyDirection);
         }
 
         return false;
