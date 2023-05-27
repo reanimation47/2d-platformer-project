@@ -47,8 +47,10 @@ public class TrunkBehaviour : MonoBehaviour
         // Check if facing player horizontally
         if (IsFacingPlayerHorizontally())
         {
-            Debug.LogError("Detect player horizontally");
+            //Debug.LogError("Detect player horizontally");
             moveSpeed = 0;
+        }else{
+            moveSpeed = 3;
         }
 
         // FireBullets();
