@@ -10,6 +10,7 @@ public class RockHead : MonoBehaviour
     public LayerMask playerLayer;
     private float checkTimer;
     private Vector3 destination;
+    private Vector3 previous_destination;
     
     private bool attacking;
 
@@ -42,6 +43,7 @@ public class RockHead : MonoBehaviour
 
             if(hit.collider != null & !attacking)
             {
+                if (previous_destination == directions[i]) { return; }
                 attacking = true;
                 destination = directions[i];
                 checkTimer = 0;
@@ -56,6 +58,7 @@ public class RockHead : MonoBehaviour
         directions[3] = -transform.up * range;
     }
     private void Stop(){
+        previous_destination = destination;
         destination = transform.position;
         attacking = false;
     }
