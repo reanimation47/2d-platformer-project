@@ -7763,6 +7763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   trunkAnimator: {fileID: 762017196}
+  bullet: {fileID: 430169793795335664, guid: b57ef7e0121788940a22df56a8400f2a, type: 3}
 --- !u!61 &762017198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11045,6 +11046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   trunkAnimator: {fileID: 1528710598}
+  bullet: {fileID: 430169793795335664, guid: b57ef7e0121788940a22df56a8400f2a, type: 3}
 --- !u!95 &1528710598
 Animator:
   serializedVersion: 5
