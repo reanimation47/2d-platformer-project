@@ -29,6 +29,8 @@ public class CanvasController : MonoBehaviour
 
     private float _stageselect_target_x = _default_offset * 3;
 
+    private float _lerp_speed = 0.02f;
+
     private void Awake()
     {
         ICanvas.LoadCanvasController(this);
@@ -77,9 +79,16 @@ public class CanvasController : MonoBehaviour
     {
         if (current_screen != CurrentScreen.stageselect)
         {
+            _lerp_speed = 0.02f;
             _cselection_target_x = - _default_offset * 2;
             _stageselect_target_x = 0;
             current_screen = CurrentScreen.stageselect;
+        }else
+        {
+            _lerp_speed = 0.05f;
+            _cselection_target_x = 0;
+            _stageselect_target_x = _default_offset * 3;
+            current_screen = CurrentScreen.characterselect;
         }
     }
 
@@ -104,7 +113,7 @@ public class CanvasController : MonoBehaviour
     private void UpdateCharacterSelectionPositioner()
     {
         _cselection_positioner.y = Mathf.Lerp(_cselection_positioner.y, _cselection_target_y, 0.05f);
-        _cselection_positioner.x = Mathf.Lerp(_cselection_positioner.x, _cselection_target_x, 0.02f);
+        _cselection_positioner.x = Mathf.Lerp(_cselection_positioner.x, _cselection_target_x, _lerp_speed);
     }
 
 
@@ -116,6 +125,6 @@ public class CanvasController : MonoBehaviour
 
     private void UpdateStageSelectionPositioner()
     {
-        _stageselect_positioner.x = Mathf.Lerp(_stageselect_positioner.x, _stageselect_target_x, 0.02f);
+        _stageselect_positioner.x = Mathf.Lerp(_stageselect_positioner.x, _stageselect_target_x, _lerp_speed);
     }
 }
