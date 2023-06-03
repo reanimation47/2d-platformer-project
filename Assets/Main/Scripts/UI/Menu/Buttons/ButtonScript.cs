@@ -63,7 +63,6 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     private void CharacterPicked()
     {
         Debug.Log("hey");
-        //ICanvas.ToggleStageSelectScreen();
         StartCoroutine(ToggleStageSelectScreen());
         //ICanvas.ToggleCharacterSelectionScreen();
     }
