@@ -56,13 +56,14 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         if (_button_type == ButtonType.CharacterSelect)
         {
             CharacterController.CharacterPicked();
-            Invoke("CharacterPicked", 0.3f);
+            Invoke("CharacterPicked", 0f);
         }
     }
 
     private void CharacterPicked()
     {
-        
+        Debug.Log("hey");
+        ICanvas.ToggleStageSelectScreen();
         //ICanvas.ToggleCharacterSelectionScreen();
     }
 
