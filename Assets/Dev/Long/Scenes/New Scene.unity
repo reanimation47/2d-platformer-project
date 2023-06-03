@@ -70206,21 +70206,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1551889384}
     m_Modifications:
-    - target: {fileID: 2653890103386592460, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7ce34ed7ad066284c982cd300912fd3b, type: 2}
     - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.7934096
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.236972
       objectReference: {fileID: 0}
     - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70262,28 +70250,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.146
       objectReference: {fileID: 0}
-    - target: {fileID: 2653890103386592466, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653890103386592467, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: PlayerJumpCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2653890103386592469, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2653890103386592469, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2653890103386592469, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2653890103386592466, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
 --- !u!1001 &1454951807
 PrefabInstance:

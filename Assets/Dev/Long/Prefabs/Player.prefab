@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 2653890103386592460}
   - component: {fileID: 2653890103386592461}
   - component: {fileID: 2653890103386592462}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2653890103386592469}
-  m_LocalRotation: {x: -0, y: -0, z: -0.001277973, w: -0.9999992}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0012740724, w: 0.9999992}
   m_LocalPosition: {x: -17.52, y: -6.35, z: 0}
-  m_LocalScale: {x: 5.691877, y: 6.3242135, z: 1}
+  m_LocalScale: {x: 3.7934096, y: 4.236972, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,7 +150,7 @@ Animator:
   m_GameObject: {fileID: 2653890103386592469}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba820fe3a13bf834798554426527cac5, type: 2}
+  m_Controller: {fileID: 9100000, guid: b23636f2fe3ca4bd28b5a381274ecbcd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4111b3fa2f5c244b873111d8190883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2653890103386592465}
 --- !u!70 &2653890103386592462
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
