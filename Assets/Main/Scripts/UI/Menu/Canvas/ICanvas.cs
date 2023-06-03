@@ -21,4 +21,9 @@ public interface ICanvas //communicating between canvas controller and other UI 
     {
         CanvasController.ToggleStageSelectScreen();
     }
+
+    public static void ToggleAlphaMask(float _alpha)
+    {
+        CanvasController.ToggleAlphaMask(_alpha);
+    }
 }
