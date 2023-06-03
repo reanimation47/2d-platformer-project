@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class CanvasController : MonoBehaviour
 {
+    public Image AlphaMask;
     public GameObject MainMenu;
     public GameObject CharacterSelection;
     public GameObject StageSelect;
@@ -16,6 +18,7 @@ public class CanvasController : MonoBehaviour
 
     private static float _default_offset = 450;
 
+    //
     private Vector3 _default_mainmenu_pos;
     private Vector3 _mainmenu_positioner = new Vector3(0,0,0);
     private Vector3 _cselection_positioner = new Vector3(0, -_default_offset, 0);
@@ -31,6 +34,11 @@ public class CanvasController : MonoBehaviour
 
     private float _lerp_speed = 0.02f;
 
+
+    //alpha mask
+    private float _alpha_scaler = 0f;
+    private float _alpha_target =0f;
+
     private void Awake()
     {
         ICanvas.LoadCanvasController(this);
@@ -45,6 +53,7 @@ public class CanvasController : MonoBehaviour
 
     private void Update()
     {
+        UpdateAlphaMask();
         UpdateMainMenuPosition();
         UpdateCharacterSelectionPosition();
         UpdateStageSelectionPosition();
@@ -52,6 +61,7 @@ public class CanvasController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateAlphaMaskScaler();
         UpdateMainMenuPositioner();
         UpdateCharacterSelectionPositioner();
         UpdateStageSelectionPositioner();
@@ -79,18 +89,35 @@ public class CanvasController : MonoBehaviour
     {
         if (current_screen != CurrentScreen.stageselect)
         {
-            _lerp_speed = 0.02f;
+            _lerp_speed = 0.07f;
             _cselection_target_x = - _default_offset * 2;
             _stageselect_target_x = 0;
             current_screen = CurrentScreen.stageselect;
         }else
         {
-            _lerp_speed = 0.05f;
+            _lerp_speed = 0.07f;
             _cselection_target_x = 0;
             _stageselect_target_x = _default_offset * 3;
             current_screen = CurrentScreen.characterselect;
         }
     }
+
+    //Alpha mask
+    private void UpdateAlphaMask()
+    {
+        Color _color = new Color();
+        _color.a = _alpha_scaler;
+        AlphaMask.color = _color;
+    }
+    private void UpdateAlphaMaskScaler()
+    {
+        _alpha_scaler = Mathf.Lerp(_alpha_scaler, _alpha_target, 0.1f);
+    }
+    public void ToggleAlphaMask(float _alpha)
+    {
+        _alpha_target = _alpha;
+    }
+
 
     //Start Menu
     private void UpdateMainMenuPosition()

@@ -63,8 +63,18 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     private void CharacterPicked()
     {
         Debug.Log("hey");
-        ICanvas.ToggleStageSelectScreen();
+        //ICanvas.ToggleStageSelectScreen();
+        StartCoroutine(ToggleStageSelectScreen());
         //ICanvas.ToggleCharacterSelectionScreen();
+    }
+
+    IEnumerator ToggleStageSelectScreen()
+    {
+        ICanvas.ToggleAlphaMask(1f);
+        yield return new WaitForSeconds(1f);
+        ICanvas.ToggleStageSelectScreen();
+        yield return new WaitForSeconds(1f);
+        ICanvas.ToggleAlphaMask(0f);
     }
 
 }
