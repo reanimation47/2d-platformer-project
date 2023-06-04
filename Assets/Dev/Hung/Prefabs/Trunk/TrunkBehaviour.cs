@@ -15,6 +15,7 @@ public class TrunkBehaviour : MonoBehaviour
     public GameObject bullet;
     private float timer;
     public float force;
+    public Transform bullet_pos;
 
 
     // Start is called before the first frame update
@@ -139,7 +140,7 @@ public class TrunkBehaviour : MonoBehaviour
         GameObject player = ICommon.GetPlayerObject();
         while (IsFacingPlayerHorizontally()) 
         {
-            GameObject _bullet = Instantiate(bullet, transform.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
+            GameObject _bullet = Instantiate(bullet, bullet_pos.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
             
             Vector3 direction = player.transform.position - transform.position;
             Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>();
