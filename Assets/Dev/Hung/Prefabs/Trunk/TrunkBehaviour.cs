@@ -13,7 +13,7 @@ public class TrunkBehaviour : MonoBehaviour
     public Animator trunkAnimator;
 
     public GameObject bullet;
-    private float timer;
+    private float timer = 1;
     public float force;
     public Transform bullet_pos;
 
@@ -128,7 +128,6 @@ public class TrunkBehaviour : MonoBehaviour
     }
 
 
-    
     private void FireBullets()
     {
 
@@ -142,12 +141,16 @@ public class TrunkBehaviour : MonoBehaviour
         {
             GameObject _bullet = Instantiate(bullet, bullet_pos.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
             
-            Vector3 direction = player.transform.position - transform.position;
+            Vector2 direction = player.transform.position - transform.position;
             Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>();
-            _bullet_rb.velocity = new Vector2(direction.x, direction.y).normalized * force; // give the spawned bullet some speed
+            _bullet_rb.velocity = new Vector2(direction.x, 0).normalized * force; // give the spawned bullet some speed
 
             yield return new WaitForSeconds(1f);
+            
+            // if (_bullet.collision)
+            // {
+            //     Destroy(_bullet);
+            // }
         }
-
     }
 }
