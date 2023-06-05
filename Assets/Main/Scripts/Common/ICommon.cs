@@ -13,6 +13,7 @@ public interface ICommon //List of important & common functions
     public static void KillPlayer() //Kills player
     {
         IPlayer.KillPlayer();
+        InGameCanvasInterface.ShowGameOverScreen();
     }
 
     //Commonly used functions
