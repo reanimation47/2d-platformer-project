@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SkullHead : MonoBehaviour
 {
+    
     //For Idle Stage
     [Header("Idle")]
-    public float idleMoveSpeed;
+    public float idleMoveSpeed = 1f;
     public Vector2 idleMoveDirection;
 
     //For Attack stage
@@ -14,20 +15,52 @@ public class SkullHead : MonoBehaviour
     public float attackMoveSpeed;
     public Vector2 attackMoveDirection;
 
-
-    private float attackPlayerSpeed;
+    [Header("Attack Player")]
+    public float attackPlayerSpeed = 1f;
     public Transform player;
+
+    //For Checks
+
+    [Header("Others")]
+    public Transform groundCheckUp;
+    public Transform groundCheckDown;
+    public Transform groundCheckWall;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    private bool isTouchingUp;
+    private bool isTouchingDown;
+    private bool isTouchingWall;
+    private bool goingUp = true;
+    private Rigidbody2D skullRB;
+
     void Start()
     {
-
+        idleMoveDirection.Normalize();
+        attackMoveDirection.Normalize();
+        skullRB = GetComponent<Rigidbody2D>();
     }
 
+    void IdleState()
+    {
+        skullRB.velocity = idleMoveSpeed * idleMoveDirection;
+
+    }
     // Update is called once per frame
     void Update()
     {
-
+        isTouchingUp = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
+        isTouchingDown = Physics2D.OverlapCircle(groundCheckDown.position, groundCheckRadius, groundLayer);
+        isTouchingWall = Physics2D.OverlapCircle(groundCheckWall.position, groundCheckRadius, groundLayer);
+        IdleState();
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(groundCheckUp.position, groundCheckRadius);
+        Gizmos.DrawWireSphere(groundCheckDown.position, groundCheckRadius);
+        Gizmos.DrawWireSphere(groundCheckWall.position, groundCheckRadius);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == IPlayer.GetPlayerObject())
