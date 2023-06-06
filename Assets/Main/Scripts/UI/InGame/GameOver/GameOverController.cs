@@ -18,23 +18,12 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private GameObject Buttons;
     private float _button_scale_target;
     private Vector2 _button_scaler = new Vector2(0,0);
-    ////QUIT button
-    //[SerializeField] private TextMeshProUGUI Button_Quit;
-    //private float _button_quit_opacity_target;
-    //private float _button_quit_opacity_scaler = 0;
-
-    ////Confirm button
-    //[SerializeField] private TextMeshProUGUI Button_Confirm;
-    //private float _button_confirm_opacity_target;
-    //private float _butto_confirm_opacity_scaler = 0;
 
     private void Update()
     {
         UpdateTitleOpacity();
         UpdateBodyOpacity();
         UpdateButtonsScale();
-        //UpdateQuitButtonOpacity();
-        //UpdateConfirmButtonOpacity();
     }
 
     private void FixedUpdate()
@@ -42,8 +31,6 @@ public class GameOverController : MonoBehaviour
         UpdateTitleOpacityScaler();
         UpdateBodyOpacityScaler();
         UpdateButtonsScaler();
-        //UpdateQuitButtonOpacityScaler();
-        //UpdateConfirmButtonOpacityScaler();
     }
 
 
@@ -110,52 +97,6 @@ public class GameOverController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         _button_scale_target = 1f;
     }
-
-    ////Quit Button
-    //private void UpdateQuitButtonOpacityScaler()
-    //{
-    //    _button_quit_opacity_scaler = Mathf.Lerp(_button_quit_opacity_scaler, _button_quit_opacity_target, 0.1f);
-    //}
-    //private void UpdateQuitButtonOpacity()
-    //{
-    //    if (_button_quit_opacity_scaler < 10)
-    //    {
-    //        Button_Quit.text = "<alpha=#0" + _button_quit_opacity_scaler + ">Try Again?";
-
-    //    }
-    //    else
-    //    {
-    //        Button_Quit.text = "<alpha=#" + (int)_button_quit_opacity_scaler + ">Try Again?";
-    //    }
-    //}
-    //IEnumerator ShowQuitButtonAfterDelay(float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-    //    _button_quit_opacity_target = 100;
-    //}
-
-    ////Confirm Button
-    //private void UpdateConfirmButtonOpacityScaler()
-    //{
-    //    _butto_confirm_opacity_scaler = Mathf.Lerp(_butto_confirm_opacity_scaler, _button_confirm_opacity_target, 0.1f);
-    //}
-    //private void UpdateConfirmButtonOpacity()
-    //{
-    //    if (_butto_confirm_opacity_scaler < 10)
-    //    {
-    //        Button_Confirm.text = "<alpha=#0" + _butto_confirm_opacity_scaler + ">Try Again?";
-
-    //    }
-    //    else
-    //    {
-    //        Button_Confirm.text = "<alpha=#" + (int)_butto_confirm_opacity_scaler + ">Try Again?";
-    //    }
-    //}
-    //IEnumerator ShowConfirmButtonAfterDelay(float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-    //    _button_confirm_opacity_target = 100;
-    //}
 
 
 

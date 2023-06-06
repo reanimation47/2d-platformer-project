@@ -62,6 +62,15 @@ public class PlayerScript : PlayerClass
         Invoke("DestroyPlayer", 0.5f);
     }
 
+    public void InjectHorizontalInput(float _dir)
+    {
+        Player.InjectHorizontalInput(_dir);
+    }
+    public void InjectJumpInput()
+    {
+        Player.Jump();
+    }
+
 
     private void InitPlayerObject()
     {
