@@ -66,9 +66,9 @@ public class SkullHead : MonoBehaviour
 
     void ChangeDirection()
     {
-        //goingUp = !goingUp;
-        //idleMoveDirection.y *= -1;
-       // attackMoveDirection.y *= -1;
+        goingUp = !goingUp;
+        idleMoveDirection.y *= -1;
+        attackMoveDirection.y *= -1;
     }
     private void OnDrawGizmosSelected()
     {
