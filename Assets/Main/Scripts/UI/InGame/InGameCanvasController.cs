@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InGameCanvasController : MonoBehaviour
 {
     public AlphaMask AlphaMask;
+    public AlphaMask AlphaMask_Front;
     [SerializeField] private GameOverController GameOverController;
     void Awake()
     {
@@ -35,6 +37,12 @@ public class InGameCanvasController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         ToggleBackgroundBlur(0f, 0.02f);
     }
+    IEnumerator GameRestart()
+    {
+        ToggleFrontGroundBlur(1, 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
     private void SetBackGroundFullBlur()
     {
@@ -46,6 +54,11 @@ public class InGameCanvasController : MonoBehaviour
         AlphaMask.ToggleBackgroundBlur(_blur, _speed);
     }
 
+    private void ToggleFrontGroundBlur(float _blur, float _speed)
+    {
+        AlphaMask_Front.ToggleBackgroundBlur(_blur, _speed);
+    }
+
     private void ShowComponents()
     {
         GameOverController.ShowTitle(0.5f);
@@ -54,10 +67,15 @@ public class InGameCanvasController : MonoBehaviour
     }
 
 
+    //public methods
     public void ShowGameOverScreen()
     {
         ToggleBackgroundBlur(0.7f, 0.05f);
         ShowComponents();
+    }
+    public void RestartGame()
+    {
+        StartCoroutine(GameRestart());
     }
 
 }
