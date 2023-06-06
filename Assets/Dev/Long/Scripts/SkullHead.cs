@@ -40,11 +40,7 @@ public class SkullHead : MonoBehaviour
         skullRB = GetComponent<Rigidbody2D>();
     }
 
-    void IdleState()
-    {
-        skullRB.velocity = idleMoveSpeed * idleMoveDirection;
-
-    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -54,6 +50,26 @@ public class SkullHead : MonoBehaviour
         IdleState();
     }
 
+    void IdleState()
+    {
+        if (isTouchingUp && goingUp)
+        {
+            ChangeDirection();
+        } else if (isTouchingDown && !goingUp)
+        {
+            ChangeDirection();
+        }
+
+        skullRB.velocity = idleMoveSpeed * idleMoveDirection;
+
+    }
+
+    void ChangeDirection()
+    {
+        //goingUp = !goingUp;
+        //idleMoveDirection.y *= -1;
+       // attackMoveDirection.y *= -1;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

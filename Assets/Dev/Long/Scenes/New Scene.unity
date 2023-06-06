@@ -71469,6 +71469,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1551889384}
     m_Modifications:
     - target: {fileID: 78867189002152524, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 78867189002152524, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_SortingLayer
       value: -1
       objectReference: {fileID: 0}
@@ -71482,11 +71486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.86
+      value: 13.13
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.81
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71526,11 +71530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152528, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152528, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_TagString
-      value: Obstacle
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152531, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_Simulated
@@ -71550,7 +71554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423495193292480018, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: Skull
@@ -71586,7 +71590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: groundCheckRadius
-      value: 0.2
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -71606,15 +71610,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: attackMoveDirection.y
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769990537396450278, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769990537396450278, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: m_AutoTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044623679999678917, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.084
       objectReference: {fileID: 0}
     - target: {fileID: 4939560083303432751, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8698655796031137568, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
