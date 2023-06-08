@@ -31,6 +31,7 @@ public class SkullHead : MonoBehaviour
     private bool isTouchingUp;
     private bool isTouchingDown;
     private bool isTouchingWall;
+    private bool facingLeft = true;
     private bool goingUp = true;
     private Rigidbody2D skullRB;
 
@@ -65,6 +66,18 @@ public class SkullHead : MonoBehaviour
             ChangeDirection();
         }
 
+        if (isTouchingWall)
+        {
+            if (facingLeft)
+            {
+                Turn();
+            } 
+            else if (!facingLeft)
+            {
+                Turn();
+            }
+        }
+
         skullRB.velocity = idleMoveSpeed * idleMoveDirection;
 
     }
@@ -74,6 +87,14 @@ public class SkullHead : MonoBehaviour
         goingUp = !goingUp;
         idleMoveDirection.y *= -1;
         attackMoveDirection.y *= -1;
+    }
+    
+    void Turn()
+    {
+        facingLeft = !facingLeft;
+        idleMoveDirection.x *= -1;
+        attackMoveDirection.x *= -1;
+        transform.Rotate(0, 180, 0);
     }
     private void OnDrawGizmosSelected()
     {
