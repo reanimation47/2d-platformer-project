@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7cc174a572a96b4e940f9ffd108b737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  range: 8
-  checkDelay: 0.25
+  speed: 1
+  range: 10
+  checkDelay: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 128

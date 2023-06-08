@@ -28,39 +28,61 @@ public class SkullHead : MonoBehaviour
     public Transform groundCheckWall;
     public float groundCheckRadius;
     public LayerMask groundLayer;
+
+    //For detect ground
     private bool isTouchingUp;
     private bool isTouchingDown;
     private bool isTouchingWall;
+
+    //for turn the skull
     private bool facingLeft = true;
     private bool goingUp = true;
     private Rigidbody2D skullRB;
 
-    private Collider2D _debug;
+    //for logic of skull attack
+    private int groundTouchCount = 0; // Counter for tracking ground touches
+    public float maxDistanceToPlayer = 3f; // Maximum distance to consider the player as far
+
+    public Animator skullHead;
+    public bool isImmortal = false;
 
     void Start()
     {
         idleMoveDirection.Normalize();
         attackMoveDirection.Normalize();
         skullRB = GetComponent<Rigidbody2D>();
+        skullHead = GetComponent<Animator>();
     }
 
-    
+
     // Update is called once per frame
+
     void Update()
     {
         isTouchingUp = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
         isTouchingDown = Physics2D.OverlapCircle(groundCheckDown.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.OverlapCircle(groundCheckWall.position, groundCheckRadius, groundLayer);
-        //AttackUpNDown();
-        //IdleState();
-        //_debug = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
-        //Debug.LogError(Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer));
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AttackPlayer();
+
+        if (isTouchingDown || isTouchingUp || isTouchingWall)
+        {   
+            isImmortal = !isImmortal;
+            AttackUpNDown();
+            groundTouchCount++; // Increment the ground touch counter
+            if (groundTouchCount >= 10)
+            {
+                AttackPlayer();
+                groundTouchCount = 0; // Reset the ground touch counter
+                
+            }
         }
+        else 
+        {
+            IdleState();
+        }
+        
         FlipTowardsPlayer();
     }
+
 
     public void IdleState()
     {
