@@ -69961,6 +69961,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
   m_PrefabInstance: {fileID: 78867188027085116}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1176632180 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 78867189002152529, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+  m_PrefabInstance: {fileID: 78867188027085116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1193558743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
@@ -71474,6 +71479,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1193558743}
+    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: SkullHe
+      value: 
+      objectReference: {fileID: 1176632180}
     - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: attackPlayerSpeed
       value: 8

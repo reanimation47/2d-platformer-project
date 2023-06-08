@@ -52,14 +52,14 @@ public class SkullHead : MonoBehaviour
         isTouchingDown = Physics2D.OverlapCircle(groundCheckDown.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.OverlapCircle(groundCheckWall.position, groundCheckRadius, groundLayer);
         //AttackUpNDown();
-        IdleState();
+        //IdleState();
         //_debug = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
         //Debug.LogError(Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer));
-        /*if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             AttackPlayer();
         }
-        FlipTowardsPlayer();*/
+        FlipTowardsPlayer();
     }
 
     public void IdleState()
