@@ -69,7 +69,7 @@ public class RockHead : MonoBehaviour
     {
         if (collision.gameObject == IPlayer.GetPlayerObject())
     {
-            IPlayer.KillPlayer();
+            ICommon.KillPlayer();
     }
     else 
     {
