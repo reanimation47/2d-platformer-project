@@ -70217,11 +70217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2612715
+      value: 21.21
       objectReference: {fileID: 0}
     - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.078589
+      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 2653890103386592465, guid: 0a93d9310317ad5448669189929eedcf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71428,11 +71428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.2
+      value: 15.47
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 78867189002152525, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71475,12 +71475,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1193558743}
     - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: attackMoveSpeed
+      propertyPath: attackPlayerSpeed
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: attackMoveDirection.y
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
