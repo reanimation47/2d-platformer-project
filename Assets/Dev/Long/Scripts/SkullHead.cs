@@ -51,7 +51,8 @@ public class SkullHead : MonoBehaviour
         isTouchingUp = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
         isTouchingDown = Physics2D.OverlapCircle(groundCheckDown.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.OverlapCircle(groundCheckWall.position, groundCheckRadius, groundLayer);
-        IdleState();
+        AttackUpNDown();
+        //IdleState();
         //_debug = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
         //Debug.LogError(Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer));
     }
@@ -79,6 +80,33 @@ public class SkullHead : MonoBehaviour
         }
 
         skullRB.velocity = idleMoveSpeed * idleMoveDirection;
+
+    }
+
+    void AttackUpNDown()
+    {
+        if (isTouchingUp && goingUp)
+        {
+            ChangeDirection();
+        }
+        else if (isTouchingDown && !goingUp)
+        {
+            ChangeDirection();
+        }
+
+        if (isTouchingWall)
+        {
+            if (facingLeft)
+            {
+                Turn();
+            }
+            else if (!facingLeft)
+            {
+                Turn();
+            }
+        }
+
+        skullRB.velocity = attackMoveSpeed * attackMoveDirection;
 
     }
 

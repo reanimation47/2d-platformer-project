@@ -147,14 +147,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleMoveSpeed: 3
   idleMoveDirection: {x: -1, y: 2}
-  attackMoveSpeed: 20
+  attackMoveSpeed: 3
   attackMoveDirection: {x: -1, y: 2}
   attackPlayerSpeed: 25
   player: {fileID: 0}
   groundCheckUp: {fileID: 4671077741503686616}
   groundCheckDown: {fileID: 6903605758475178174}
   groundCheckWall: {fileID: 4044623679999678917}
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.33
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
