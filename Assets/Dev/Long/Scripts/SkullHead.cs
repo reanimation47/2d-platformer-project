@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class SkullHead : MonoBehaviour
@@ -33,6 +34,8 @@ public class SkullHead : MonoBehaviour
     private bool goingUp = true;
     private Rigidbody2D skullRB;
 
+    private Collider2D _debug;
+
     void Start()
     {
         idleMoveDirection.Normalize();
@@ -48,6 +51,8 @@ public class SkullHead : MonoBehaviour
         isTouchingDown = Physics2D.OverlapCircle(groundCheckDown.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.OverlapCircle(groundCheckWall.position, groundCheckRadius, groundLayer);
         IdleState();
+        //_debug = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
+        //Debug.LogError(Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer));
     }
 
     void IdleState()
