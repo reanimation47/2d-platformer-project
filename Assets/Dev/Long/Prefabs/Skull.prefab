@@ -147,8 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleMoveSpeed: 3
   idleMoveDirection: {x: -1, y: 2}
-  attackMoveSpeed: 3
-  attackMoveDirection: {x: -1, y: 2}
+  attackMoveSpeed: 8
+  attackMoveDirection: {x: -1, y: 5}
   attackPlayerSpeed: 25
   player: {fileID: 0}
   groundCheckUp: {fileID: 4671077741503686616}

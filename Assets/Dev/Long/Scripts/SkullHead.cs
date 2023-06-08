@@ -19,7 +19,7 @@ public class SkullHead : MonoBehaviour
     [Header("Attack Player")]
     public float attackPlayerSpeed = 1f;
     public Transform player;
-
+    private Vector2 playerPosis;
     //For Checks
 
     [Header("Others")]
@@ -51,10 +51,15 @@ public class SkullHead : MonoBehaviour
         isTouchingUp = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
         isTouchingDown = Physics2D.OverlapCircle(groundCheckDown.position, groundCheckRadius, groundLayer);
         isTouchingWall = Physics2D.OverlapCircle(groundCheckWall.position, groundCheckRadius, groundLayer);
-        AttackUpNDown();
+        //AttackUpNDown();
         //IdleState();
         //_debug = Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer);
         //Debug.LogError(Physics2D.OverlapCircle(groundCheckUp.position, groundCheckRadius, groundLayer));
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AttackPlayer();
+        }
+        FlipTowardsPlayer();
     }
 
     void IdleState()
@@ -110,6 +115,29 @@ public class SkullHead : MonoBehaviour
 
     }
 
+    void AttackPlayer()
+    {
+        //take player position
+        playerPosis = player.position - transform.position;
+        //normalize player position
+        playerPosis.Normalize();
+        //attack on player
+        skullRB.velocity = playerPosis * attackPlayerSpeed;
+    }
+
+    void FlipTowardsPlayer()
+    {
+        float playerDirection = player.position.x - transform.position.x;
+
+        if (playerDirection > 0 && facingLeft)
+        {
+            Turn();
+        } 
+        else if (playerDirection < 0 && !facingLeft)
+        {
+            Turn();
+        }
+    }
     void ChangeDirection()
     {
         goingUp = !goingUp;
