@@ -86,7 +86,7 @@ public class SkullHead : MonoBehaviour
     {
         if (collision.gameObject == IPlayer.GetPlayerObject())
         {
-            IPlayer.KillPlayer();
+            ICommon.KillPlayer();
         }
     }
 }
