@@ -1,0 +1,37 @@
+name: Release Android Build
+
+on:
+  push:
+    tags:
+    - 'v*'
+permissions:
+  contents: write
+  
+jobs:
+  buildForAllSupportedPlatforms:
+    name: Build & Release for ${{ matrix.targetPlatform }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - Android # Build an Android .apk standalone app.
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+          restore-keys: Library-
+      - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: ${{ matrix.targetPlatform }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/Android/Android.apk
