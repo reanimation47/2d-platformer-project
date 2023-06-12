@@ -140,16 +140,11 @@ public class TrunkBehaviour : MonoBehaviour
         {
             GameObject _bullet = Instantiate(bullet, bullet_pos.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
             
-            Vector2 direction = player.transform.position - transform.position;
+            float direction = player.transform.position.x - transform.position.x;
             Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>();
-            _bullet_rb.velocity = new Vector2(direction.x, 0).normalized * force; // give the spawned bullet some speed
+            _bullet_rb.velocity = new Vector2(direction, 0).normalized * force; // give the spawned bullet some speed
 
             yield return new WaitForSeconds(1f);
-            
-            // if (_bullet.collision)
-            // {
-            //     Destroy(_bullet);
-            // }
         }
     }
 }
