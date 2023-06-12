@@ -83,7 +83,6 @@ public class TrunkBehaviour : MonoBehaviour
     //Die logic
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.LogError("Hit");
         if (collision.gameObject == player)
         {
             int collide_state = ICommon.GetCollisionDirection(collision);
