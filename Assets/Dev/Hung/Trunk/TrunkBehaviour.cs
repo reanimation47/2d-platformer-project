@@ -139,7 +139,7 @@ public class TrunkBehaviour : MonoBehaviour
         while (IsFacingPlayerHorizontally()) 
         {
             GameObject _bullet = Instantiate(bullet, bullet_pos.position, Quaternion.identity); //Spawns a bullet and assign it to _bullet
-            
+            //Physics2D.IgnoreCollision(_bullet.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
             float direction = player.transform.position.x - transform.position.x;
             Rigidbody2D _bullet_rb = _bullet.GetComponent<Rigidbody2D>();
             _bullet_rb.velocity = new Vector2(direction, 0).normalized * force; // give the spawned bullet some speed
