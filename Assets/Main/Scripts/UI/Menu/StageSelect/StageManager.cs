@@ -1,29 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enum.StageSelect.EnemyTypes;
+using Common.Extension;
 
 public class StageManager : MonoBehaviour
 {
     private int UnlockedIndex = 4; //placeholder for testing, will use PlayPrefs to store this in the future
     public List<StageButton> StageButtons;
 
-    public Dictionary<int, List<int>> StagesInfo = new Dictionary<int, List<int>>()
+    public Dictionary<int, List<EnemyType>> StagesInfo = new Dictionary<int, List<EnemyType>>()
     {
-        {1, new List<int>() {0} },
-        {2, new List<int>() {1,2} },
-        {3, new List<int>() {2,3} },
-        {3000, new List<int>() {0,1,2,3,4} }, //for extra stage of 3rd stage
-        {4, new List<int>() {3,4} },
+        //Level 1
+        {1, new List<EnemyType>() {
+            EnemyType.RockHead,
+            EnemyType.SpikeHead,
+            EnemyType.AngryPig} },
+        //Level 2
+        {2, new List<EnemyType>() {
+            EnemyType.FatBird,
+            EnemyType.ChargeRino} },
+        //Level 3
+        {3, new List<EnemyType>() {
+            EnemyType.ChargeRino,
+            EnemyType.TeleGhost} },
+        //Level 3 extra (endless)
+        {3000, new List<EnemyType>() {
+            EnemyType.BlueTurtle,
+            EnemyType.FatBird,
+            EnemyType.ChargeRino,
+            EnemyType.TeleGhost,
+            EnemyType.BulletTrunk} }, //for extra stage of 3rd stage
+        //Level 4
+        {4, new List<EnemyType>() {
+            EnemyType.TeleGhost,
+            EnemyType.BulletTrunk} },
     };
 
     private void Awake()
     {
         IStage.LoadStageManager(this);
+        UnlockedIndex -= 1;
     }
 
     void Start()
     {
-        
         LoadStageButtons();
         SetupUnlockedStages();
     }
@@ -62,6 +83,7 @@ public class StageManager : MonoBehaviour
 
     public List<int> GetIndexedStageEnemyInfo(int index)
     {
-        return StagesInfo[index];
+        //List<int> _converted_to_int = StagesInfo[index].ConvertAll(x => (int)x); // convert all elements inside a list into int type
+        return Extension.ConvertEnemyTypeListToInt(StagesInfo[index]);
     }
 }

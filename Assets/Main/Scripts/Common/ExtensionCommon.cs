@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ExtensionCommon 
+public interface ExtensionCommon //Not a good way to implement an extension for common use, see Extension.cs instead
 {
     public static int GetCollisionDirection(Collision2D collision) 
     {
