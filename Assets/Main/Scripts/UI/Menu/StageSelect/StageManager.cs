@@ -6,14 +6,14 @@ using Common.Extension;
 
 public class StageManager : MonoBehaviour
 {
-    private int UnlockedIndex = 3; //placeholder for testing, will use PlayPrefs to store this in the future
+    private int UnlockedIndex = 4; //placeholder for testing, will use PlayPrefs to store this in the future
     public List<StageButton> StageButtons;
 
     public Dictionary<int, List<EnemyType>> StagesInfo = new Dictionary<int, List<EnemyType>>()
     {
         //Level 1
         {1, new List<EnemyType>() {
-            EnemyType.BlueTurtle,
+            EnemyType.RockHead,
             EnemyType.SpikeHead} },
         //Level 2
         {2, new List<EnemyType>() {
@@ -39,6 +39,7 @@ public class StageManager : MonoBehaviour
     private void Awake()
     {
         IStage.LoadStageManager(this);
+        UnlockedIndex -= 1;
     }
 
     void Start()

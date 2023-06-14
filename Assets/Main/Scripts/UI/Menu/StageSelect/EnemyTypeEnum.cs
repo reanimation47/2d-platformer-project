@@ -7,7 +7,8 @@ namespace Enum.StageSelect.EnemyTypes
         ChargeRino = 2,
         TeleGhost = 3,
         BulletTrunk = 4,
-        SpikeHead = 5
+        SpikeHead = 5,
+        RockHead = 6,
 
     }
 }
