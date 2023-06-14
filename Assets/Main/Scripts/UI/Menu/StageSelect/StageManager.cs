@@ -14,7 +14,8 @@ public class StageManager : MonoBehaviour
         //Level 1
         {1, new List<EnemyType>() {
             EnemyType.RockHead,
-            EnemyType.SpikeHead} },
+            EnemyType.SpikeHead,
+            EnemyType.AngryPig} },
         //Level 2
         {2, new List<EnemyType>() {
             EnemyType.FatBird,

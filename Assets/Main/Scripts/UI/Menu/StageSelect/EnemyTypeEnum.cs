@@ -9,6 +9,7 @@ namespace Enum.StageSelect.EnemyTypes
         BulletTrunk = 4,
         SpikeHead = 5,
         RockHead = 6,
+        AngryPig = 7,
 
     }
 }
