@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICommon //List of important & common functions
+public interface ICommon //Interface for communications between components
 {
     //Related to player
+    private static float player_last_injected_dir = 0;
     public static GameObject GetPlayerObject() //return player object
     {
         return IPlayer.GetPlayerObject();
@@ -13,6 +14,22 @@ public interface ICommon //List of important & common functions
     public static void KillPlayer() //Kills player
     {
         IPlayer.KillPlayer();
+        InGameCanvasInterface.ShowGameOverScreen();
+    }
+
+    public static void InjectHorizontalInput(float _dir)
+    {
+        IPlayer.InjectHorizontalInput(_dir);
+        player_last_injected_dir = _dir;
+    }
+    public static void InjectJumpInput()
+    {
+        IPlayer.InjectJumpInput();
+    }
+
+    public static float GetPlayerLastInjectedDir()
+    {
+        return player_last_injected_dir;
     }
 
     //Commonly used functions

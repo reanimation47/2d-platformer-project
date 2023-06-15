@@ -40,7 +40,7 @@ public class SkullHead : MonoBehaviour
     private Rigidbody2D skullRB;
 
     //for logic of skull attack
-    private int groundTouchCount = 0; // Counter for tracking ground touches
+    public int groundTouchCount = 0; // Counter for tracking ground touches
     public float maxDistanceToPlayer = 3f; // Maximum distance to consider the player as far
 
     public Animator skullHead;
@@ -68,10 +68,10 @@ public class SkullHead : MonoBehaviour
             isImmortal = !isImmortal;
             AttackUpNDown();
             groundTouchCount++; // Increment the ground touch counter
-            if (groundTouchCount >= 10)
+            if (groundTouchCount >= 1000)
             {
                 AttackPlayer();
-                groundTouchCount = 0; // Reset the ground touch counter
+                //groundTouchCount = 0; // Reset the ground touch counter
                 
             }
         }
@@ -139,6 +139,7 @@ public class SkullHead : MonoBehaviour
 
     public void AttackPlayer()
     {
+        skullHead.SetBool("isImmortal", true);
         //take player position
         playerPosis = player.position - transform.position;
         //normalize player position

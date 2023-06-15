@@ -33,4 +33,13 @@ public interface IPlayer
         }
         PlayerScript.KillPlayer();
     }
+
+    public static void InjectHorizontalInput(float _dir)
+    {
+        PlayerScript.InjectHorizontalInput(_dir);
+    }
+    public static void InjectJumpInput()
+    {
+        PlayerScript.InjectJumpInput();
+    }
 }

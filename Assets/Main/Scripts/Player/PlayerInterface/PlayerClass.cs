@@ -30,6 +30,7 @@ public class PlayerClass : MonoBehaviour
 
         //Dynamic values
         private static float dir_x {get;set;}
+        private static bool _is_being_injected = false;
         //private enum anim_state { idle, running, jumping, falling };
 
         public static void GetPlayerObject()
@@ -55,7 +56,14 @@ public class PlayerClass : MonoBehaviour
 
         public static void GetHorizontalInput()
         {
+            if (_is_being_injected) { return; }
             dir_x = Input.GetAxisRaw("Horizontal");
+        }
+
+        public static void InjectHorizontalInput(float _x)
+        {
+            _is_being_injected = _x != 0;
+            dir_x = _x;
         }
 
         public static void GetJumpInput()
@@ -73,7 +81,7 @@ public class PlayerClass : MonoBehaviour
             IPlayerAnimation.UpdateAnimState(anim, rb, dir_x, srenderer);
         }
 
-        private static void Jump()
+        public static void Jump()
         {
             if (!IPlayerInteraction.isGrounded(collider))
             {
