@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 657250852839884265}
   - component: {fileID: 824072351624029208}
   - component: {fileID: 8798368002517414130}
-  - component: {fileID: 6279251077198068429}
+  - component: {fileID: 371102186}
   m_Layer: 5
   m_Name: Confirm
   m_TagString: Untagged
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6279251077198068429
+--- !u!114 &371102186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3468898104447448811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e21eff6e9f3471f8f68d464a9d7df3, type: 3}
+  m_Script: {fileID: 11500000, guid: f0862773292934cde98f8c0ff0619215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button_type: 1
@@ -1079,9 +1079,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6531e3a9f3c44a1aed1a86c1ae851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 0}
-  Body: {fileID: 0}
-  Buttons: {fileID: 0}
+  Title: {fileID: 1526971427936226599}
+  _title_text: YOU LOST
+  Body: {fileID: 4828623616699217831}
+  _body_text: Try Again?
+  Buttons: {fileID: 1639016470370585426}
 --- !u!1 &4835231594037157098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1095,7 @@ GameObject:
   - component: {fileID: 7934921249508957482}
   - component: {fileID: 5740542557855479769}
   - component: {fileID: 3530490584115760643}
-  - component: {fileID: 481250167662756681}
+  - component: {fileID: 1038698019}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1160,7 +1162,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &481250167662756681
+--- !u!114 &1038698019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1169,7 +1171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4835231594037157098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e21eff6e9f3471f8f68d464a9d7df3, type: 3}
+  m_Script: {fileID: 11500000, guid: f0862773292934cde98f8c0ff0619215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button_type: 0
@@ -2571,7 +2573,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: {fileID: 6898132138279160871}
+  _title_text: YOU LOST
   Body: {fileID: 6898132138602355129}
+  _body_text: Try Again?
   Buttons: {fileID: 6898132138158687077}
 --- !u!1 &7460529497955222439
 GameObject:
