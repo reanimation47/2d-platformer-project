@@ -48,7 +48,7 @@ public class PlayerScript : PlayerClass
         int collisionState = Player.CheckOnCollision(collision);
         if (collisionState == 0)
         {
-            KillPlayer();
+            ICommon.KillPlayer();
         }
     }
 
