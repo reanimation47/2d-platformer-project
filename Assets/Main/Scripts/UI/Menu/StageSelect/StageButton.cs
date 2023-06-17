@@ -16,6 +16,7 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
     public int stage_index = 0;
 
     private bool _stage_highlighted = false;
+    private bool _stage_unlocked = false;
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
 
     public void ToggleStageUnlocked(bool _is_unlocked)
     {
+        _stage_unlocked = _is_unlocked;
         transform.Find("Unlocked").gameObject.SetActive(_is_unlocked);
         transform.Find("Locked").gameObject.SetActive(!_is_unlocked);
     }
@@ -64,6 +66,7 @@ public class StageButton : MonoBehaviour, IPointerDownHandler
 
     private void StageHighlightAction()
     {
+        if (!_stage_unlocked) { return; }
         if (_stage_highlighted)
         {
             ToggleStageHighlight(false);
