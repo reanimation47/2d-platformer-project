@@ -22,4 +22,8 @@ public interface InGameCanvasInterface
     {
         controller.RestartGame();
     }
+    public static void BackToStageSelect()
+    {
+        controller.BackToStageSelect();
+    }
 }

@@ -32,13 +32,18 @@ public class CanvasController : MonoBehaviour
 
     private float _stageselect_target_x = _default_offset * 3;
 
-    private float _x_lerp_speed = 0.02f;
+    //lerping
+    private float _x_lerp_speed = 0.07f;
     private float _y_lerp_speed = 0.05f;
+    private float _alphasmask_lerp_speed = 0.1f;
+
+    private bool _lerp_speed_overrided = false;
+    private float _overrided_lerp_speed = 1f;
 
 
     //alpha mask
-    private float _alpha_scaler = 0f;
-    private float _alpha_target =0f;
+    private float _alpha_scaler = 1f;
+    private float _alpha_target =1f;
 
     private void Awake()
     {
@@ -50,6 +55,13 @@ public class CanvasController : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+        if (ICanvas.SkipToStageSelect)
+        {
+            SkipToStageSelectScreen();
+        }else
+        {
+            CanvasIntro();
+        }
     }
 
     private void Update()
@@ -66,6 +78,64 @@ public class CanvasController : MonoBehaviour
         UpdateMainMenuPositioner();
         UpdateCharacterSelectionPositioner();
         UpdateStageSelectionPositioner();
+    }
+
+    //Alpha mask
+    private void UpdateAlphaMask()
+    {
+        Color _color = new Color();
+        _color.a = _alpha_scaler;
+        AlphaMask.color = _color;
+    }
+    private void UpdateAlphaMaskScaler()
+    {
+        float alphasmask_lerp_speed = _lerp_speed_overrided ? _overrided_lerp_speed : _alphasmask_lerp_speed;
+        _alpha_scaler = Mathf.Lerp(_alpha_scaler, _alpha_target, alphasmask_lerp_speed);
+    }
+    public void ToggleAlphaMask(float _alpha)
+    {
+        _alpha_target = _alpha;
+    }
+
+
+    //Start Menu
+    private void UpdateMainMenuPosition()
+    {
+        MainMenu.transform.localPosition = _mainmenu_positioner;
+    }
+
+    private void UpdateMainMenuPositioner()
+    {
+        float lerp_speed_y = _lerp_speed_overrided ? _overrided_lerp_speed : _y_lerp_speed;
+        _mainmenu_positioner.y = Mathf.Lerp(_mainmenu_positioner.y, _mainmenu_target_y, lerp_speed_y);
+    }
+
+
+    //Character Select
+    private void UpdateCharacterSelectionPosition()
+    {
+        CharacterSelection.transform.localPosition = _cselection_positioner;
+    }
+
+    private void UpdateCharacterSelectionPositioner()
+    {
+        float lerp_speed_x = _lerp_speed_overrided ? _overrided_lerp_speed : _x_lerp_speed;
+        float lerp_speed_y = _lerp_speed_overrided ? _overrided_lerp_speed : _y_lerp_speed;
+        _cselection_positioner.y = Mathf.Lerp(_cselection_positioner.y, _cselection_target_y, lerp_speed_y);
+        _cselection_positioner.x = Mathf.Lerp(_cselection_positioner.x, _cselection_target_x, lerp_speed_x);
+    }
+
+
+    //Stage Select
+    private void UpdateStageSelectionPosition()
+    {
+        StageSelect.transform.localPosition = _stageselect_positioner;
+    }
+
+    private void UpdateStageSelectionPositioner()
+    {
+        float lerp_speed_x = _lerp_speed_overrided ? _overrided_lerp_speed : _x_lerp_speed;
+        _stageselect_positioner.x = Mathf.Lerp(_stageselect_positioner.x, _stageselect_target_x, lerp_speed_x);
     }
 
     //custom methods
@@ -90,69 +160,41 @@ public class CanvasController : MonoBehaviour
     {
         if (current_screen != CurrentScreen.stageselect)
         {
-            _x_lerp_speed = 0.07f;
-            _cselection_target_x = - _default_offset * 2;
+            _cselection_target_x = -_default_offset * 2;
             _stageselect_target_x = 0;
             current_screen = CurrentScreen.stageselect;
-        }else
+        }
+        else
         {
-            _x_lerp_speed = 0.07f;
             _cselection_target_x = 0;
             _stageselect_target_x = _default_offset * 3;
             current_screen = CurrentScreen.characterselect;
         }
     }
 
-    //Alpha mask
-    private void UpdateAlphaMask()
+    public void SkipToStageSelectScreen()
     {
-        Color _color = new Color();
-        _color.a = _alpha_scaler;
-        AlphaMask.color = _color;
+        StartCoroutine(CoSkipToStageSelectScreen());
     }
-    private void UpdateAlphaMaskScaler()
+    IEnumerator CoSkipToStageSelectScreen()
     {
-        _alpha_scaler = Mathf.Lerp(_alpha_scaler, _alpha_target, 0.1f);
-    }
-    public void ToggleAlphaMask(float _alpha)
-    {
-        _alpha_target = _alpha;
-    }
-
-
-    //Start Menu
-    private void UpdateMainMenuPosition()
-    {
-        MainMenu.transform.localPosition = _mainmenu_positioner;
+        ICanvas.SkipToStageSelect = false;
+        _lerp_speed_overrided = true;
+        ToggleAlphaMask(1f);
+        ToggleCharacterSelectionScreen();
+        ToggleStageSelectScreen();
+        _lerp_speed_overrided = false;
+        yield return new WaitForSeconds(1f);
+        ToggleAlphaMask(0f);
     }
 
-    private void UpdateMainMenuPositioner()
+    private void CanvasIntro()
     {
-        _mainmenu_positioner.y = Mathf.Lerp(_mainmenu_positioner.y, _mainmenu_target_y, _y_lerp_speed);
+        StartCoroutine(CoCanvasIntro());
     }
-
-
-    //Character Select
-    private void UpdateCharacterSelectionPosition()
+    IEnumerator CoCanvasIntro()
     {
-        CharacterSelection.transform.localPosition = _cselection_positioner;
-    }
-
-    private void UpdateCharacterSelectionPositioner()
-    {
-        _cselection_positioner.y = Mathf.Lerp(_cselection_positioner.y, _cselection_target_y, _y_lerp_speed);
-        _cselection_positioner.x = Mathf.Lerp(_cselection_positioner.x, _cselection_target_x, _x_lerp_speed);
-    }
-
-
-    //Stage Select
-    private void UpdateStageSelectionPosition()
-    {
-        StageSelect.transform.localPosition = _stageselect_positioner;
-    }
-
-    private void UpdateStageSelectionPositioner()
-    {
-        _stageselect_positioner.x = Mathf.Lerp(_stageselect_positioner.x, _stageselect_target_x, _x_lerp_speed);
+        yield return new WaitForSeconds(1f);
+        ToggleAlphaMask(0f);
     }
 }

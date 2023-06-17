@@ -24,9 +24,15 @@ public class GameOverButton : MonoBehaviour, IPointerDownHandler
             InGameCanvasInterface.RestartGame();
 
         }
+        else if(_button_type == ButtonType.Quit)
+        {
+            StartCoroutine(startWiggling(1));
+            InGameCanvasInterface.BackToStageSelect();
+            Debug.LogError("Clicked");
+        }
         else
         {
-            Debug.LogError("Clicked");
+            Debug.LogError("Button type not defined, check GameOverButton.cs");
         }
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+using Common.InGame;
+
 public class InGameCanvasController : MonoBehaviour
 {
     public AlphaMask AlphaMask;
@@ -41,17 +43,7 @@ public class InGameCanvasController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         PlayerControlController.ToggleControls(true);
     }
-    IEnumerator GameRestart()
-    {
-        ToggleFrontGroundBlur(1, 0.1f);
-        yield return new WaitForSeconds(0.5f);
-        AsyncOperation async_load = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        while (!async_load.isDone)
-        {
-            yield return null;
-        }
-
-    }
+    
 
     private void SetBackGroundFullBlur()
     {
@@ -86,6 +78,34 @@ public class InGameCanvasController : MonoBehaviour
     public void RestartGame()
     {
         StartCoroutine(GameRestart());
+    }
+    IEnumerator GameRestart()
+    {
+        ToggleFrontGroundBlur(1, 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        AsyncOperation async_load = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while (!async_load.isDone)
+        {
+            yield return null;
+        }
+
+    }
+
+    public void BackToStageSelect()
+    {
+        StartCoroutine(CoBackToStageSelect());
+    }
+    IEnumerator CoBackToStageSelect()
+    {
+        ToggleFrontGroundBlur(1, 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        ICommon.ToggleSkipToStageSelect(true);
+        AsyncOperation async_load = SceneManager.LoadSceneAsync(InGameCommon.StartMenuSceneName);
+        while (!async_load.isDone)
+        {
+            yield return null;
+        }
+
     }
 
 }

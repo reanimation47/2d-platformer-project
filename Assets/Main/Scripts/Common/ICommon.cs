@@ -40,4 +40,10 @@ public interface ICommon //Interface for communications between components
         //returns 1 if collided from top
         //returns 2 if collided from bottom
     }
+
+    //ICanvas
+    public static void ToggleSkipToStageSelect(bool toggle)
+    {
+        ICanvas.SkipToStageSelect = toggle;
+    }
 }
