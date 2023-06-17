@@ -24,8 +24,8 @@ namespace Enum.StageSelect.StageIndex
                 return SceneDictionary[_enum];
             }else
             {
-                Debug.LogError("Stage index was out of bound, check StageIndexing.cs");
-                return "Stage01";
+                Debug.LogError("Stage index was out of bound, defaulting to the first stage, check StageIndexing.cs for more info");
+                return SceneDictionary[(StageIndex)1];
             }
         }
     }
