@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameOverController : MonoBehaviour
+public abstract class InGameScreenBase : MonoBehaviour
 {
     //Title
     [SerializeField] private TextMeshProUGUI Title;
@@ -17,7 +17,7 @@ public class GameOverController : MonoBehaviour
 
     [SerializeField] private GameObject Buttons;
     private float _button_scale_target;
-    private Vector2 _button_scaler = new Vector2(0,0);
+    private Vector2 _button_scaler = new Vector2(0, 0);
 
     private void Update()
     {
@@ -101,6 +101,10 @@ public class GameOverController : MonoBehaviour
 
 
     //final
+    public void ToggleGroup(bool toggle)
+    {
+        gameObject.SetActive(toggle);
+    }
     public void ShowTitle(float delay)
     {
         StartCoroutine(ShowTitleAfterDelay(delay));

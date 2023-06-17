@@ -60,8 +60,9 @@ public class InGameCanvasController : MonoBehaviour
         AlphaMask_Front.ToggleBackgroundBlur(_blur, _speed);
     }
 
-    private void ShowComponents()
+    private void ShowGameOverComponents()
     {
+        GameOverController.ToggleGroup(true);
         GameOverController.ShowTitle(0.5f);
         GameOverController.ShowBody(2f);
         GameOverController.ShowButtons(2.2f);
@@ -73,8 +74,13 @@ public class InGameCanvasController : MonoBehaviour
     public void ShowGameOverScreen()
     {
         ToggleBackgroundBlur(0.7f, 0.05f);
-        ShowComponents();
+        ShowGameOverComponents();
     }
+    public void ShowStageCompleteScreen()
+    {
+        ToggleBackgroundBlur(0.7f, 0.05f);
+    }
+
     public void RestartGame()
     {
         StartCoroutine(GameRestart());
