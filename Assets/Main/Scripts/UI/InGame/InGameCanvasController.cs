@@ -41,7 +41,12 @@ public class InGameCanvasController : MonoBehaviour
     {
         ToggleFrontGroundBlur(1, 0.1f);
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        AsyncOperation async_load = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while (!async_load.isDone)
+        {
+            yield return null;
+        }
+
     }
 
     private void SetBackGroundFullBlur()
