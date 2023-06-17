@@ -6697,7 +6697,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGameCanvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6279251077198068429, guid: fa5d6e68eb27f44bc8965cfdc8da6bb0, type: 3}
+    - {fileID: 481250167662756681, guid: fa5d6e68eb27f44bc8965cfdc8da6bb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa5d6e68eb27f44bc8965cfdc8da6bb0, type: 3}
 --- !u!4 &299093982 stripped
 Transform:
@@ -6948,6 +6950,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &371102181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3468898104447448811, guid: fa5d6e68eb27f44bc8965cfdc8da6bb0, type: 3}
+  m_PrefabInstance: {fileID: 298334694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &371102186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371102181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0862773292934cde98f8c0ff0619215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button_type: 1
 --- !u!4 &441333241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1130351043838512322, guid: 024810eac6df9477685e750d2742310e, type: 3}
@@ -69918,6 +69938,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 384284841409667043, guid: 8cd42cd1a0cdd9643a9c50e8881835f1, type: 3}
   m_PrefabInstance: {fileID: 1237924349}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038698014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4835231594037157098, guid: fa5d6e68eb27f44bc8965cfdc8da6bb0, type: 3}
+  m_PrefabInstance: {fileID: 298334694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038698019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038698014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0862773292934cde98f8c0ff0619215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button_type: 0
 --- !u!4 &1058651387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 384284841409667043, guid: 8cd42cd1a0cdd9643a9c50e8881835f1, type: 3}
