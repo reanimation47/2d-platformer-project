@@ -9,6 +9,7 @@ public class InGameCanvasController : MonoBehaviour
     public AlphaMask AlphaMask;
     public AlphaMask AlphaMask_Front;
     [SerializeField] private GameOverController GameOverController;
+    [SerializeField] private PlayerControlController PlayerControlController;
     void Awake()
     {
         InGameCanvasInterface.LoadController(this);
@@ -33,9 +34,12 @@ public class InGameCanvasController : MonoBehaviour
 
     IEnumerator GameIntro()
     {
+        PlayerControlController.ToggleControls(false);
         SetBackGroundFullBlur();
         yield return new WaitForSeconds(0.5f);
         ToggleBackgroundBlur(0f, 0.02f);
+        yield return new WaitForSeconds(0.5f);
+        PlayerControlController.ToggleControls(true);
     }
     IEnumerator GameRestart()
     {
@@ -69,6 +73,7 @@ public class InGameCanvasController : MonoBehaviour
         GameOverController.ShowTitle(0.5f);
         GameOverController.ShowBody(2f);
         GameOverController.ShowButtons(2.2f);
+        PlayerControlController.ToggleControls(false);
     }
 
 
