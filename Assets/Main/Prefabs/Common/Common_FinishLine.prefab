@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1710197042939487338}
   - component: {fileID: 1710197042939487341}
   - component: {fileID: 1710197042939487342}
+  - component: {fileID: 1567398760}
   m_Layer: 0
   m_Name: Common_FinishLine
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1710197042939487329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50.89, y: -3.33, z: 0}
-  m_LocalScale: {x: 4.228426, y: 4.4956226, z: 0.6404766}
+  m_LocalScale: {x: 3.865627, y: 3.8693824, z: 0.6404766}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,3 +134,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1567398760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710197042939487329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0732b6c7e356b4e11a9ed1af7ce5aeed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
