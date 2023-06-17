@@ -6,7 +6,7 @@ using Common.Extension;
 
 public class StageManager : MonoBehaviour
 {
-    private int UnlockedIndex = 1; //placeholder for testing, will use PlayPrefs to store this in the future
+    private int UnlockedIndex = 2; //placeholder for testing, will use PlayPrefs to store this in the future
     public List<StageButton> StageButtons;
 
     public Dictionary<int, List<EnemyType>> StagesInfo = new Dictionary<int, List<EnemyType>>()
@@ -18,8 +18,7 @@ public class StageManager : MonoBehaviour
             EnemyType.AngryPig} },
         //Level 2
         {2, new List<EnemyType>() {
-            EnemyType.FatBird,
-            EnemyType.ChargeRino} },
+            EnemyType.BulletTrunk} },
         //Level 3
         {3, new List<EnemyType>() {
             EnemyType.ChargeRino,

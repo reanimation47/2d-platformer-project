@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101296781}
+  - component: {fileID: 398975645}
   m_Layer: 5
   m_Name: PlayerControlsGroup
   m_TagString: Untagged
@@ -38,6 +39,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &398975645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101296780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb11c3ad4c0c440bac126df62fe2130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inputs:
+  - {fileID: 230029965}
+  - {fileID: 1079275437}
+  - {fileID: 800716834}
 --- !u!1 &132252214
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c8e1b9bc63245b286eef27aa1727b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 230029963}
   _input_type: 0
 --- !u!1 &300804405
 GameObject:
@@ -338,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c8e1b9bc63245b286eef27aa1727b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 800716832}
   _input_type: 2
 --- !u!1 &1079275433
 GameObject:
@@ -428,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c8e1b9bc63245b286eef27aa1727b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 1079275435}
   _input_type: 1
 --- !u!1 &1830385742
 GameObject:
@@ -692,6 +712,7 @@ MonoBehaviour:
   AlphaMask: {fileID: 6898132137672794072}
   AlphaMask_Front: {fileID: 6898132138999683954}
   GameOverController: {fileID: 6898132139256574815}
+  PlayerControlController: {fileID: 398975645}
 --- !u!1 &6898132137672794076
 GameObject:
   m_ObjectHideFlags: 0
