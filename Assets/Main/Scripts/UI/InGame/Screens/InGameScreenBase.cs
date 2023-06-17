@@ -9,15 +9,21 @@ public abstract class InGameScreenBase : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Title;
     private float _title_opacity_target;
     private float _title_opacity_scaler = 0;
-
+    public string _title_text = "YOU LOST";
     //Body
     [SerializeField] private TextMeshProUGUI Body;
     private float _body_opacity_target;
     private float _body_opacity_scaler = 0;
+    public string _body_text = "Try Again?";
 
     [SerializeField] private GameObject Buttons;
     private float _button_scale_target;
     private Vector2 _button_scaler = new Vector2(0, 0);
+
+    private void Start()
+    {
+        SetTexts();
+    }
 
     private void Update()
     {
@@ -43,12 +49,12 @@ public abstract class InGameScreenBase : MonoBehaviour
     {
         if (_title_opacity_scaler < 10)
         {
-            Title.text = "<alpha=#0" + _title_opacity_scaler + ">YOU LOST";
+            Title.text = "<alpha=#0" + _title_opacity_scaler + ">" + _title_text;
 
         }
         else
         {
-            Title.text = "<alpha=#" + (int)_title_opacity_scaler + ">YOU LOST";
+            Title.text = "<alpha=#" + (int)_title_opacity_scaler + ">" + _title_text;
         }
     }
     IEnumerator ShowTitleAfterDelay(float delay)
@@ -66,12 +72,12 @@ public abstract class InGameScreenBase : MonoBehaviour
     {
         if (_body_opacity_scaler < 10)
         {
-            Body.text = "<alpha=#0" + _body_opacity_scaler + ">Try Again?";
+            Body.text = "<alpha=#0" + _body_opacity_scaler + ">" + _body_text;
 
         }
         else
         {
-            Body.text = "<alpha=#" + (int)_body_opacity_scaler + ">Try Again?";
+            Body.text = "<alpha=#" + (int)_body_opacity_scaler + ">" + _body_text;
         }
     }
     IEnumerator ShowBodyAfterDelay(float delay)
@@ -118,6 +124,7 @@ public abstract class InGameScreenBase : MonoBehaviour
         StartCoroutine(ShowButtonsAfterDelay(delay));
     }
 
-
+    //Virtual methods
+    public abstract void SetTexts();
 
 }

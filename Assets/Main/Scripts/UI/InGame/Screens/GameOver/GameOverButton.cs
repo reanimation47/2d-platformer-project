@@ -68,7 +68,7 @@ public class GameOverButton : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    IEnumerator startWiggling(float duration)
+    public IEnumerator startWiggling(float duration)
     {
         is_wiggling = true;
         StartCoroutine(wigglingAction(0.1f));
@@ -78,7 +78,7 @@ public class GameOverButton : MonoBehaviour, IPointerDownHandler
 
     }
 
-    IEnumerator wigglingAction(float rate)
+    public IEnumerator wigglingAction(float rate)
     {
         while (is_wiggling)
         {

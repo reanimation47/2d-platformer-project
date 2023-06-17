@@ -11,6 +11,7 @@ public class InGameCanvasController : MonoBehaviour
     public AlphaMask AlphaMask;
     public AlphaMask AlphaMask_Front;
     [SerializeField] private GameOverController GameOverController;
+    [SerializeField] private StageCompleteController StageCompleteController;
     [SerializeField] private PlayerControlController PlayerControlController;
     void Awake()
     {
@@ -68,6 +69,14 @@ public class InGameCanvasController : MonoBehaviour
         GameOverController.ShowButtons(2.2f);
         PlayerControlController.ToggleControls(false);
     }
+    private void ShowStageCompleteComponents()
+    {
+        StageCompleteController.ToggleGroup(true);
+        StageCompleteController.ShowTitle(0.5f);
+        StageCompleteController.ShowBody(2f);
+        StageCompleteController.ShowButtons(2.2f);
+        PlayerControlController.ToggleControls(false);
+    }
 
 
     //public methods
@@ -79,6 +88,7 @@ public class InGameCanvasController : MonoBehaviour
     public void ShowStageCompleteScreen()
     {
         ToggleBackgroundBlur(0.7f, 0.05f);
+        ShowStageCompleteComponents();
     }
 
     public void RestartGame()

@@ -46,4 +46,10 @@ public interface ICommon //Interface for communications between components
     {
         ICanvas.SkipToStageSelect = toggle;
     }
+
+    //In game events
+    public static void StageCompleted()
+    {
+        InGameCanvasInterface.ShowStageCompleteScreen();
+    }
 }

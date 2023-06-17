@@ -1038,7 +1038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5510941243145746069}
-  - component: {fileID: 7050075279009056721}
+  - component: {fileID: 295806161}
   m_Layer: 5
   m_Name: StageCompleteGroup
   m_TagString: Untagged
@@ -1067,7 +1067,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7050075279009056721
+--- !u!114 &295806161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,12 +1076,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3851272884448052912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686ebde1f27ed42a2b53be4332396b44, type: 3}
+  m_Script: {fileID: 11500000, guid: ef6531e3a9f3c44a1aed1a86c1ae851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 1526971427936226599}
-  Body: {fileID: 4828623616699217831}
-  Buttons: {fileID: 1639016470370585426}
+  Title: {fileID: 0}
+  Body: {fileID: 0}
+  Buttons: {fileID: 0}
 --- !u!1 &4835231594037157098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,6 +1504,7 @@ MonoBehaviour:
   AlphaMask: {fileID: 6898132137672794072}
   AlphaMask_Front: {fileID: 6898132138999683954}
   GameOverController: {fileID: 6898132139256574815}
+  StageCompleteController: {fileID: 295806161}
   PlayerControlController: {fileID: 398975645}
 --- !u!1 &6898132137672794076
 GameObject:
