@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlayerInteraction 
+public class IPlayerInteraction 
 {
     //Default values
     private static string defaultGroundLayer = "Ground";

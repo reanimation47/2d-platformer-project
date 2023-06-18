@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Common.Extension;
 
 public interface ICommon //Interface for communications between components
 {
@@ -35,7 +36,7 @@ public interface ICommon //Interface for communications between components
     //Commonly used functions
     public static int GetCollisionDirection(Collision2D collision) //Works properly on collisions with player
     {
-        return ExtensionCommon.GetCollisionDirection(collision);
+        return Extension.GetCollisionDirection(collision);
         //returns 0 if the collided horizontally
         //returns 1 if collided from top
         //returns 2 if collided from bottom
