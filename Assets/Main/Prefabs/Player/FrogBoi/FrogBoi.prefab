@@ -105,7 +105,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: adcab441c5fbe405bac6e639477ab840, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a093650e3d5c42df95e4b548af06542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerJumpHeight: 8
+  PlayerJumpHeight: 9
   PlayerMovementSpeed: 8
   PlayerJumpCount: 2
 --- !u!95 &1130351043838512335
