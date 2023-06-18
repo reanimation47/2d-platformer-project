@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PlayerControlGroup : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [HideInInspector] public enum InputType { Left, Right, Jump }
+
+    [SerializeField] private Image img;
     public InputType _input_type;
 
     private float _left_dir = -1;
@@ -40,5 +42,11 @@ public class PlayerControlGroup : MonoBehaviour, IPointerDownHandler, IPointerUp
             //Nothing
         }
 
+    }
+
+    //custom methods
+    public void ToggleControl(bool _enable)
+    {
+        gameObject.SetActive(_enable);
     }
 }

@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+using Common.InGame;
+
 public class InGameCanvasController : MonoBehaviour
 {
     public AlphaMask AlphaMask;
     public AlphaMask AlphaMask_Front;
     [SerializeField] private GameOverController GameOverController;
+    [SerializeField] private StageCompleteController StageCompleteController;
+    [SerializeField] private PlayerControlController PlayerControlController;
     void Awake()
     {
         InGameCanvasInterface.LoadController(this);
@@ -33,16 +37,14 @@ public class InGameCanvasController : MonoBehaviour
 
     IEnumerator GameIntro()
     {
+        PlayerControlController.ToggleControls(false);
         SetBackGroundFullBlur();
         yield return new WaitForSeconds(0.5f);
         ToggleBackgroundBlur(0f, 0.02f);
-    }
-    IEnumerator GameRestart()
-    {
-        ToggleFrontGroundBlur(1, 0.1f);
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerControlController.ToggleControls(true);
     }
+    
 
     private void SetBackGroundFullBlur()
     {
@@ -59,11 +61,21 @@ public class InGameCanvasController : MonoBehaviour
         AlphaMask_Front.ToggleBackgroundBlur(_blur, _speed);
     }
 
-    private void ShowComponents()
+    private void ShowGameOverComponents()
     {
+        GameOverController.ToggleGroup(true);
         GameOverController.ShowTitle(0.5f);
         GameOverController.ShowBody(2f);
         GameOverController.ShowButtons(2.2f);
+        PlayerControlController.ToggleControls(false);
+    }
+    private void ShowStageCompleteComponents()
+    {
+        StageCompleteController.ToggleGroup(true);
+        StageCompleteController.ShowTitle(0.5f);
+        StageCompleteController.ShowBody(2f);
+        StageCompleteController.ShowButtons(2.2f);
+        PlayerControlController.ToggleControls(false);
     }
 
 
@@ -71,11 +83,45 @@ public class InGameCanvasController : MonoBehaviour
     public void ShowGameOverScreen()
     {
         ToggleBackgroundBlur(0.7f, 0.05f);
-        ShowComponents();
+        ShowGameOverComponents();
     }
+    public void ShowStageCompleteScreen()
+    {
+        ToggleBackgroundBlur(0.7f, 0.05f);
+        ShowStageCompleteComponents();
+    }
+
     public void RestartGame()
     {
         StartCoroutine(GameRestart());
+    }
+    IEnumerator GameRestart()
+    {
+        ToggleFrontGroundBlur(1, 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        AsyncOperation async_load = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while (!async_load.isDone)
+        {
+            yield return null;
+        }
+
+    }
+
+    public void BackToStageSelect()
+    {
+        StartCoroutine(CoBackToStageSelect());
+    }
+    IEnumerator CoBackToStageSelect()
+    {
+        ToggleFrontGroundBlur(1, 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        ICommon.ToggleSkipToStageSelect(true);
+        AsyncOperation async_load = SceneManager.LoadSceneAsync(InGameCommon.StartMenuSceneName);
+        while (!async_load.isDone)
+        {
+            yield return null;
+        }
+
     }
 
 }

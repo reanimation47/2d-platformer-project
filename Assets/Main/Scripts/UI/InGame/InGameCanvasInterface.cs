@@ -18,8 +18,16 @@ public interface InGameCanvasInterface
     {
         controller.ShowGameOverScreen();
     }
+    public static void ShowStageCompleteScreen()
+    {
+        controller.ShowStageCompleteScreen();
+    }
     public static void RestartGame()
     {
         controller.RestartGame();
+    }
+    public static void BackToStageSelect()
+    {
+        controller.BackToStageSelect();
     }
 }

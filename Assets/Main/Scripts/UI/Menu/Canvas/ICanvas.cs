@@ -6,6 +6,7 @@ using UnityEngine;
 public interface ICanvas //communicating between canvas controller and other UI components
 {
     private static CanvasController CanvasController;
+    public static bool SkipToStageSelect = false;
 
     public static void LoadCanvasController(CanvasController _canvas)
     {
@@ -20,6 +21,11 @@ public interface ICanvas //communicating between canvas controller and other UI 
     public static void ToggleStageSelectScreen()
     {
         CanvasController.ToggleStageSelectScreen();
+    }
+
+    public static void SkipToStageSelectScreen()
+    {
+        CanvasController.SkipToStageSelectScreen();
     }
 
     public static void ToggleAlphaMask(float _alpha)

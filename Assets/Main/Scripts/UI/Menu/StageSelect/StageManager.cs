@@ -3,39 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enum.StageSelect.EnemyTypes;
 using Common.Extension;
+using Common.StageConfiguration;
 
 public class StageManager : MonoBehaviour
 {
-    private int UnlockedIndex = 1; //placeholder for testing, will use PlayPrefs to store this in the future
+    private int UnlockedIndex = StageConfiguration.UnlockedIndex;
     public List<StageButton> StageButtons;
 
-    public Dictionary<int, List<EnemyType>> StagesInfo = new Dictionary<int, List<EnemyType>>()
-    {
-        //Level 1
-        {1, new List<EnemyType>() {
-            EnemyType.RockHead,
-            EnemyType.SpikeHead,
-            EnemyType.AngryPig} },
-        //Level 2
-        {2, new List<EnemyType>() {
-            EnemyType.FatBird,
-            EnemyType.ChargeRino} },
-        //Level 3
-        {3, new List<EnemyType>() {
-            EnemyType.ChargeRino,
-            EnemyType.TeleGhost} },
-        //Level 3 extra (endless)
-        {3000, new List<EnemyType>() {
-            EnemyType.BlueTurtle,
-            EnemyType.FatBird,
-            EnemyType.ChargeRino,
-            EnemyType.TeleGhost,
-            EnemyType.BulletTrunk} }, //for extra stage of 3rd stage
-        //Level 4
-        {4, new List<EnemyType>() {
-            EnemyType.TeleGhost,
-            EnemyType.BulletTrunk} },
-    };
+    public Dictionary<int, List<EnemyType>> StagesInfo = StageConfiguration.StagesInfo;
 
     private void Awake()
     {
