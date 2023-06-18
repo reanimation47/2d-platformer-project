@@ -68,7 +68,7 @@ public class PlayerClass : MonoBehaviour
 
         public static void GetJumpInput()
         {
-            ResetJumpCount();
+            //ResetJumpCount();
             if (Input.GetButtonDown("Jump"))
             {
                 Jump();
@@ -83,26 +83,21 @@ public class PlayerClass : MonoBehaviour
 
         public static void Jump()
         {
-            if (!IPlayerInteraction.isGrounded(collider))
+            bool stillHaveMidAirJump = JumpCount > 0;
+            if (stillHaveMidAirJump)
             {
-                bool stillHaveMidAirJump = JumpCount > 0;
-                if (stillHaveMidAirJump)
-                {
-                    JumpCount -= 1;
-                }else
-                {
-                    return;
-                }
+                JumpCount -= 1;
+            }
+            else
+            {
+                return;
             }
             rb.velocity = new Vector2(rb.velocity.x, JumpHeight);
         }
 
-        private static void ResetJumpCount()
+        public static void ResetJumpCount(Collider2D collision)
         {
-            if (IPlayerInteraction.isGrounded(collider))
-            {
-                JumpCount = defaultJumpCount;
-            }
+            JumpCount = defaultJumpCount;
         }
 
         public static int CheckOnCollision(Collision2D collision)

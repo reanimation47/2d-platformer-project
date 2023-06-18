@@ -52,6 +52,11 @@ public class PlayerScript : PlayerClass
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player.ResetJumpCount(collision);
+    }
+
 
     //Custom methods
 
