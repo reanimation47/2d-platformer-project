@@ -13,6 +13,7 @@ public class InGameCanvasController : MonoBehaviour
     [SerializeField] private GameOverController GameOverController;
     [SerializeField] private StageCompleteController StageCompleteController;
     [SerializeField] private PlayerControlController PlayerControlController;
+    [SerializeField] private GamePauseController GamePauseController;
     void Awake()
     {
         InGameCanvasInterface.LoadController(this);
@@ -77,6 +78,12 @@ public class InGameCanvasController : MonoBehaviour
         StageCompleteController.ShowButtons(2.2f);
         PlayerControlController.ToggleControls(false);
     }
+    private void ShowStagePauseComponents()
+    {
+        //GamePauseController.ChangeLerpSpeed(0.5f);
+        GamePauseController.ToggleGroup(true);
+        PlayerControlController.ToggleControls(false);
+    }
 
 
     //public methods
@@ -90,6 +97,8 @@ public class InGameCanvasController : MonoBehaviour
         ToggleBackgroundBlur(0.7f, 0.05f);
         ShowStageCompleteComponents();
     }
+    
+
 
     public void RestartGame()
     {
@@ -122,6 +131,25 @@ public class InGameCanvasController : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    //Pause game
+    public void ShowPauseScreen()
+    {
+        StartCoroutine(CoShowPauseScreen());
+    }
+    IEnumerator CoShowPauseScreen()
+    {
+        ToggleBackgroundBlur(0.7f, 1f);
+        ShowStagePauseComponents();
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0; // pauses the game
+    }
+    public void ResumeGame()
+    {
+        ToggleBackgroundBlur(0, 0.05f);
+        GamePauseController.ToggleGroup(false);
+        Time.timeScale = 1;
     }
 
 }

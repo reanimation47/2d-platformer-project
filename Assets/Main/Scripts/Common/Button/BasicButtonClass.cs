@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class BasicButtonClass : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private Vector3 scaler = new Vector3(1, 1, 1);

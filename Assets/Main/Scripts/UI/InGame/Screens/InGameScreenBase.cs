@@ -20,6 +20,8 @@ public abstract class InGameScreenBase : MonoBehaviour
     private float _button_scale_target;
     private Vector2 _button_scaler = new Vector2(0, 0);
 
+    private float _lerp_speed = 0.1f;
+
     private void Start()
     {
         SetTexts();
@@ -43,7 +45,7 @@ public abstract class InGameScreenBase : MonoBehaviour
     //Title
     private void UpdateTitleOpacityScaler()
     {
-        _title_opacity_scaler = Mathf.Lerp(_title_opacity_scaler, _title_opacity_target, 0.1f);
+        _title_opacity_scaler = Mathf.Lerp(_title_opacity_scaler, _title_opacity_target, _lerp_speed);
     }
     private void UpdateTitleOpacity()
     {
@@ -66,7 +68,7 @@ public abstract class InGameScreenBase : MonoBehaviour
     //Body
     private void UpdateBodyOpacityScaler()
     {
-        _body_opacity_scaler = Mathf.Lerp(_body_opacity_scaler, _body_opacity_target, 0.1f);
+        _body_opacity_scaler = Mathf.Lerp(_body_opacity_scaler, _body_opacity_target, _lerp_speed);
     }
     private void UpdateBodyOpacity()
     {
@@ -89,8 +91,8 @@ public abstract class InGameScreenBase : MonoBehaviour
     //Buttons
     private void UpdateButtonsScaler()
     {
-        _button_scaler.x = Mathf.Lerp(_button_scaler.x, _button_scale_target, 0.1f);
-        _button_scaler.y = Mathf.Lerp(_button_scaler.y, _button_scale_target, 0.1f);
+        _button_scaler.x = Mathf.Lerp(_button_scaler.x, _button_scale_target, _lerp_speed);
+        _button_scaler.y = Mathf.Lerp(_button_scaler.y, _button_scale_target, _lerp_speed);
     }
     private void UpdateButtonsScale()
     {
@@ -124,7 +126,11 @@ public abstract class InGameScreenBase : MonoBehaviour
         StartCoroutine(ShowButtonsAfterDelay(delay));
     }
 
-    //Virtual methods
+    public virtual void ChangeLerpSpeed(float _newvalue)
+    {
+        _lerp_speed = _newvalue;
+    }
+    //Abstract methods
     public abstract void SetTexts();
 
 }
