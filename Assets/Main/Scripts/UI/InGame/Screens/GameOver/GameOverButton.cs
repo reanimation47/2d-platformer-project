@@ -15,5 +15,9 @@ public class GameOverButton : InGameButtonBase
     {
         InGameCanvasInterface.BackToStageSelect();
     }
+    public override void RestartAction()
+    {
+
+    }
 
 }

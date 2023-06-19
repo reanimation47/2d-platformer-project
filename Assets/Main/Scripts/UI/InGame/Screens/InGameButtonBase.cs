@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public abstract class InGameButtonBase : MonoBehaviour, IPointerDownHandler
 {
-    [HideInInspector] public enum ButtonType { Quit, Confirm }
+    [HideInInspector] public enum ButtonType { Quit, Confirm, Restart }
     public ButtonType _button_type;
     RectTransform rectTransform;
     private void Awake()
@@ -27,6 +27,12 @@ public abstract class InGameButtonBase : MonoBehaviour, IPointerDownHandler
         {
             StartCoroutine(startWiggling(1));
             QuitAction();
+            //Debug.LogError("Clicked");
+        }
+        else if (_button_type == ButtonType.Restart)
+        {
+            StartCoroutine(startWiggling(1));
+            RestartAction();
             //Debug.LogError("Clicked");
         }
         else
@@ -87,7 +93,9 @@ public abstract class InGameButtonBase : MonoBehaviour, IPointerDownHandler
 
     }
 
+    
     //Abstract methods
     public abstract void ConfirmAction();
     public abstract void QuitAction();
+    public abstract void RestartAction();
 }
