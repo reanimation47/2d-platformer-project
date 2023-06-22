@@ -150,6 +150,7 @@ public class InGameCanvasController : MonoBehaviour
         ToggleBackgroundBlur(0, 0.05f);
         GamePauseController.ToggleGroup(false);
         Time.timeScale = 1;
+        PlayerControlController.ToggleControls(true);
     }
 
 }
