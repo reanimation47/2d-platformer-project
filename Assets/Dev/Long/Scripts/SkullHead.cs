@@ -70,7 +70,7 @@ public class SkullHead : MonoBehaviour
             groundTouchCount++; // Increment the ground touch counter
             if (groundTouchCount >= 1000)
             {
-                AttackPlayer();
+                //AttackPlayer();
                 //groundTouchCount = 0; // Reset the ground touch counter
                 
             }
