@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Endless.CommonInfo;
 
 public class PopupController : MonoBehaviour
 {
@@ -71,7 +72,9 @@ public class PopupController : MonoBehaviour
         int current_index = IStage.GetCurrentHighlightedStageIndex();
         if (current_index >999)
         {
-            Title.text = "<color=red>Endless " + (current_index/1000).ToString() + "</color>" + "\n<size=60%>High Score: 20";
+            string highscore_key = EndlessInfo.Endless_HighScore_PlayerPrefs_Prefix + current_index;
+            int current_highscore = PlayerPrefs.GetInt(highscore_key);
+            Title.text = "<color=red>Endless " + (current_index/1000).ToString() + "</color>" + "\n<size=60%>High Score: " + current_highscore;
         }
         else
         {

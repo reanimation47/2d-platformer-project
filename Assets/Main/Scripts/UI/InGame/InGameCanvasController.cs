@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Endless.CommonInfo;
 
 using Common.InGame;
 
@@ -95,10 +96,30 @@ public class InGameCanvasController : MonoBehaviour
         PlayerControlController.ToggleControls(false);
     }
 
+    private void SaveEndlessScore()
+    {
+        if (!CurrentLevelIsEndless) { return; }
+        int current_endless_score = EndlessModeController.GetCurrentScore();
+        string endless_score_key = EndlessInfo.Endless_HighScore_PlayerPrefs_Prefix + IStage.GetCurrentPlayingLevel();
+        if (!PlayerPrefs.HasKey(endless_score_key))
+        {
+            PlayerPrefs.SetInt(endless_score_key, current_endless_score);
+        }else
+        {
+            int previous_highscore = PlayerPrefs.GetInt(endless_score_key);
+            if (current_endless_score > previous_highscore)
+            {
+                PlayerPrefs.SetInt(endless_score_key, current_endless_score);
+            }
+        }
+
+    }
+
 
     //public methods
     public void ShowGameOverScreen()
     {
+        SaveEndlessScore();
         ToggleBackgroundBlur(0.7f, 0.05f);
         ShowGameOverComponents();
     }
