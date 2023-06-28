@@ -11,9 +11,7 @@ namespace Enum.StageSelect.StageIndex
             {StageIndex.Stage1, "Stage01" },
             {StageIndex.Stage2, "Stage02" },
             {StageIndex.Stage3, "Stage03" },
-            {StageIndex.Stage4, "Stage04" },
-            {StageIndex.Stage5, "Stage05" },
-            {StageIndex.Stage6, "Stage06" }
+            {StageIndex.Stage4, "Stage04" }
         };
         private static Dictionary<StageIndex, string> EndlessSceneDictionary = new Dictionary<StageIndex, string>()
         {
@@ -38,6 +36,7 @@ namespace Enum.StageSelect.StageIndex
                 return dictionary[_enum];
             }else
             {
+                IStage.LoadCurrentPlayingLevel(1);
                 Debug.LogError("Stage index was out of bound, defaulting to the first stage, check StageIndexing.cs for more info");
                 return dictionary[(StageIndex)1];
             }

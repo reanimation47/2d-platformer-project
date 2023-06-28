@@ -21,6 +21,7 @@ public class InGameCanvasController : MonoBehaviour
     [SerializeField] private EndlessModeController EndlessModeController;
 
     private bool CurrentLevelIsEndless = false;
+    private bool IsShowingAScreen = false;
 
     void Awake()
     {
@@ -134,12 +135,16 @@ public class InGameCanvasController : MonoBehaviour
     //public methods
     public void ShowGameOverScreen()
     {
+        if (IsShowingAScreen) { return; }
+        IsShowingAScreen = true;
         SaveEndlessScore();
         ToggleBackgroundBlur(0.7f, 0.05f);
         ShowGameOverComponents();
     }
     public void ShowStageCompleteScreen()
     {
+        if (IsShowingAScreen) { return; }
+        IsShowingAScreen = true;
         ToggleBackgroundBlur(0.7f, 0.05f);
         ShowStageCompleteComponents();
     }
@@ -188,13 +193,15 @@ public class InGameCanvasController : MonoBehaviour
         ToggleFrontGroundBlur(1, 0.1f);
         yield return new WaitForSeconds(0.5f);
         int current_level = IStage.GetCurrentPlayingLevel();
+        
         string next_stage_scene = StageIndexing.GetStageAtIndex(current_level + 1);
-
+        IStage.LoadCurrentPlayingLevel(current_level + 1);
         AsyncOperation async_load = SceneManager.LoadSceneAsync(next_stage_scene);
         while (!async_load.isDone)
         {
             yield return null;
         }
+        
     }
 
     //Pause game

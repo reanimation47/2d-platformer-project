@@ -67,6 +67,7 @@ public interface IStage
     }
     public static int GetCurrentPlayingLevel()
     {
+        Debug.LogError("CurrentPlayingLevel: " + CurrentPlayingLevel);
         return CurrentPlayingLevel;
     }
 }
