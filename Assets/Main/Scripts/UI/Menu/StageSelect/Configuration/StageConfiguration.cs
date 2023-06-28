@@ -7,7 +7,8 @@ namespace Common.StageConfiguration
     public class StageConfiguration
     {
         //hardcoded for now
-        public static int UnlockedIndex = 4; 
+        public static int UnlockedIndex = 4;
+        public readonly static string UnlockedIndexKey = "382193821391230098";
 
         //For displaying enemy types in popup window
         public readonly static Dictionary<int, List<EnemyType>> StagesInfo = new Dictionary<int, List<EnemyType>>()

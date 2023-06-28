@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Endless.CommonInfo;
+using Common.StageConfiguration;
 
 using Common.InGame;
 
@@ -82,6 +83,7 @@ public class InGameCanvasController : MonoBehaviour
     }
     private void ShowStageCompleteComponents()
     {
+        SaveStageProgress();
         PauseButton.SetActive(false);
         StageCompleteController.ToggleGroup(true);
         StageCompleteController.ShowTitle(0.5f);
@@ -111,6 +113,18 @@ public class InGameCanvasController : MonoBehaviour
             {
                 PlayerPrefs.SetInt(endless_score_key, current_endless_score);
             }
+        }
+
+    }
+
+    private void SaveStageProgress()
+    {
+        if (CurrentLevelIsEndless) { return; }
+        int CurrentPlayingLevel = IStage.GetCurrentPlayingLevel();
+        int CurrentUnlockedStage = PlayerPrefs.GetInt(StageConfiguration.UnlockedIndexKey);
+        if (CurrentPlayingLevel > CurrentUnlockedStage)
+        {
+            PlayerPrefs.SetInt(StageConfiguration.UnlockedIndexKey, CurrentPlayingLevel);
         }
 
     }
