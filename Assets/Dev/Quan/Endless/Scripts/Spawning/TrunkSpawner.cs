@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Endless.Level1.SpawnInfo;
+using Endless.Level3.SpawnInfo;
 
 //public class SpawnInfo
 //{

@@ -71,7 +71,7 @@ public class PopupController : MonoBehaviour
         int current_index = IStage.GetCurrentHighlightedStageIndex();
         if (current_index >999)
         {
-            Title.text = "Stage " + (current_index/1000).ToString() + "\n<color=red>Endless</color>";
+            Title.text = "<color=red>Endless " + (current_index/1000).ToString() + "</color>" + "\n<size=60%>High Score: 20";
         }
         else
         {

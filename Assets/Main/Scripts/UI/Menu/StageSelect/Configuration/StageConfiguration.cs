@@ -7,7 +7,7 @@ namespace Common.StageConfiguration
     public class StageConfiguration
     {
         //hardcoded for now
-        public static int UnlockedIndex = 2; 
+        public static int UnlockedIndex = 4; 
 
         //For displaying enemy types in popup window
         public readonly static Dictionary<int, List<EnemyType>> StagesInfo = new Dictionary<int, List<EnemyType>>()
@@ -26,10 +26,7 @@ namespace Common.StageConfiguration
                 EnemyType.TeleGhost} },
             //Level 3 extra (endless)
             {3000, new List<EnemyType>() {
-                EnemyType.BlueTurtle,
-                EnemyType.FatBird,
-                EnemyType.ChargeRino,
-                EnemyType.TeleGhost,
+                EnemyType.SpikeHead,
                 EnemyType.BulletTrunk} }, 
             //Level 4
             {4, new List<EnemyType>() {

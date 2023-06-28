@@ -15,7 +15,10 @@ public class StartButton : BasicButtonClass
     {
         ICanvas.ToggleAlphaMask(1f);
         yield return new WaitForSeconds(1f);
-        string _scene_name = StageIndexing.GetStageAtIndex(IStage.GetCurrentHighlightedStageIndex());
+        //Debug.Log(IStage.GetCurrentHighlightedStageIndex());
+        int current_stage_index = IStage.GetCurrentHighlightedStageIndex();
+        IStage.LoadCurrentPlayingLevel(current_stage_index);
+        string _scene_name = StageIndexing.GetStageAtIndex(current_stage_index);
         AsyncOperation async_load = SceneManager.LoadSceneAsync(_scene_name);
         while(!async_load.isDone)
         {

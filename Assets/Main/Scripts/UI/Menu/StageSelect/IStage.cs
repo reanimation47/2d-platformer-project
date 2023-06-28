@@ -58,4 +58,15 @@ public interface IStage
     {
         PopupController.TogglePopup(_toggle);
     }
+
+    //Currently Playing Level Info
+    private static int CurrentPlayingLevel;
+    public static void LoadCurrentPlayingLevel(int index)
+    {
+        CurrentPlayingLevel = index;
+    }
+    public static int GetCurrentPlayingLevel()
+    {
+        return CurrentPlayingLevel;
+    }
 }

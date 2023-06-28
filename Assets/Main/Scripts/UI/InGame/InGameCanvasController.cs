@@ -15,14 +15,21 @@ public class InGameCanvasController : MonoBehaviour
     [SerializeField] private StageCompleteController StageCompleteController;
     [SerializeField] private PlayerControlController PlayerControlController;
     [SerializeField] private GamePauseController GamePauseController;
+    [SerializeField] private EndlessModeController EndlessModeController;
+
+    private bool CurrentLevelIsEndless = false;
+
     void Awake()
     {
         InGameCanvasInterface.LoadController(this);
+        CurrentLevelIsEndless = IStage.GetCurrentPlayingLevel() > 999;
+        Debug.Log("CurrentLevelIsEndless: " + CurrentLevelIsEndless);
     }
 
     private void Start()
     {
         StartCoroutine(GameIntro());
+        EndlessModeController.ToggleEndlessView(CurrentLevelIsEndless);
     }
 
     private void Update()
