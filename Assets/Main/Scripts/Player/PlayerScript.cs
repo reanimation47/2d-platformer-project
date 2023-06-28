@@ -25,7 +25,7 @@ public class PlayerScript : PlayerClass
 
     private void Start()
     {
-        
+        Player.dir_x = 0;
         
     }
 

@@ -29,7 +29,7 @@ public class PlayerClass : MonoBehaviour
 
 
         //Dynamic values
-        private static float dir_x {get;set;}
+        public static float dir_x {get;set;}
         private static bool _is_being_injected = false;
         //private enum anim_state { idle, running, jumping, falling };
 
