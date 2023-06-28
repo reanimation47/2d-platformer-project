@@ -2502,6 +2502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AlphaMask: {fileID: 6898132137672794072}
   AlphaMask_Front: {fileID: 6898132138999683954}
+  PauseButton: {fileID: 8399953755124718043}
   GameOverController: {fileID: 6898132139256574815}
   StageCompleteController: {fileID: 295806161}
   PlayerControlController: {fileID: 398975645}

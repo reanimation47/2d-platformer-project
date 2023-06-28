@@ -10,6 +10,7 @@ public class InGameCanvasController : MonoBehaviour
 {
     public AlphaMask AlphaMask;
     public AlphaMask AlphaMask_Front;
+    public GameObject PauseButton;
     [SerializeField] private GameOverController GameOverController;
     [SerializeField] private StageCompleteController StageCompleteController;
     [SerializeField] private PlayerControlController PlayerControlController;
@@ -64,6 +65,7 @@ public class InGameCanvasController : MonoBehaviour
 
     private void ShowGameOverComponents()
     {
+        PauseButton.SetActive(false);
         GameOverController.ToggleGroup(true);
         GameOverController.ShowTitle(0.5f);
         GameOverController.ShowBody(2f);
@@ -72,6 +74,7 @@ public class InGameCanvasController : MonoBehaviour
     }
     private void ShowStageCompleteComponents()
     {
+        PauseButton.SetActive(false);
         StageCompleteController.ToggleGroup(true);
         StageCompleteController.ShowTitle(0.5f);
         StageCompleteController.ShowBody(2f);
@@ -140,6 +143,7 @@ public class InGameCanvasController : MonoBehaviour
     }
     IEnumerator CoShowPauseScreen()
     {
+        PauseButton.SetActive(false);
         ToggleBackgroundBlur(0.7f, 1f);
         ShowStagePauseComponents();
         yield return new WaitForSeconds(0.1f);
@@ -150,6 +154,8 @@ public class InGameCanvasController : MonoBehaviour
         ToggleBackgroundBlur(0, 0.05f);
         GamePauseController.ToggleGroup(false);
         Time.timeScale = 1;
+        PlayerControlController.ToggleControls(true);
+        PauseButton.SetActive(true);
     }
 
 }
