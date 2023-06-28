@@ -2,6 +2,6 @@ namespace Common.InGame
 {
     public class InGameCommon
     {
-        public static string StartMenuSceneName = "Menu";
+        public readonly static string StartMenuSceneName = "Menu";
     }
 }

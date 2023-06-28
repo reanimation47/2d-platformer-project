@@ -6,7 +6,7 @@ public class StageCompleteButton : InGameButtonBase
 {
     public override void ConfirmAction()
     {
-        
+        InGameCanvasInterface.ProceedToNextStage();
     }
     public override void QuitAction()
     {

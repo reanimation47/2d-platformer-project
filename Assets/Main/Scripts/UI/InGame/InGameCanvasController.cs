@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Endless.CommonInfo;
 using Common.StageConfiguration;
+using Enum.StageSelect.StageIndex;
 
 using Common.InGame;
 
@@ -176,6 +177,24 @@ public class InGameCanvasController : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    public void ProceedToNextStage()
+    {
+        StartCoroutine(CoProceedToNextStage());
+    }
+    IEnumerator CoProceedToNextStage()
+    {
+        ToggleFrontGroundBlur(1, 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        int current_level = IStage.GetCurrentPlayingLevel();
+        string next_stage_scene = StageIndexing.GetStageAtIndex(current_level + 1);
+
+        AsyncOperation async_load = SceneManager.LoadSceneAsync(next_stage_scene);
+        while (!async_load.isDone)
+        {
+            yield return null;
+        }
     }
 
     //Pause game
