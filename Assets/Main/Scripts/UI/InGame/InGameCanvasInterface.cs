@@ -12,6 +12,7 @@ public interface InGameCanvasInterface
             Debug.LogError("Unexpected InGameCanvasController was loaded into the interface!");
         }
         controller = _controller;
+        GamePaused = false;
     }
 
     public static void ShowGameOverScreen()
