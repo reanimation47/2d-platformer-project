@@ -68,9 +68,9 @@ public class SkullHead : MonoBehaviour
             isImmortal = !isImmortal;
             AttackUpNDown();
             groundTouchCount++; // Increment the ground touch counter
-            if (groundTouchCount >= 1000)
+            if (groundTouchCount >= 15)
             {
-                AttackPlayer();
+                //AttackPlayer();
                 //groundTouchCount = 0; // Reset the ground touch counter
                 
             }

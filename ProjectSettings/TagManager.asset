@@ -49,3 +49,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hiddenground
+    uniqueID: 759622799
+    locked: 0

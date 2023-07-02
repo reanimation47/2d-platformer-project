@@ -5031,6 +5031,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  groundTouchCount: 0
   maxDistanceToPlayer: 3
   skullHead: {fileID: 78867189002152529}
   isImmortal: 0

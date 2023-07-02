@@ -15,7 +15,8 @@ public class StageManager : MonoBehaviour
     private void Awake()
     {
         IStage.LoadStageManager(this);
-        UnlockedIndex -= 1;
+        LoadPlayerProgression();
+        //UnlockedIndex -= 1;
     }
 
     void Start()
@@ -25,6 +26,20 @@ public class StageManager : MonoBehaviour
     }
 
     //custom methods
+
+    private void LoadPlayerProgression()
+    {
+        string UnlockedIndexKey = StageConfiguration.UnlockedIndexKey;
+        //PlayerPrefs.DeleteKey(UnlockedIndexKey);
+        if (PlayerPrefs.HasKey(UnlockedIndexKey))
+        {
+            UnlockedIndex = PlayerPrefs.GetInt(UnlockedIndexKey);
+        }else
+        {
+            UnlockedIndex = 0;
+            PlayerPrefs.SetInt(UnlockedIndexKey, UnlockedIndex);
+        }
+    }
 
     private void LoadStageButtons()
     {

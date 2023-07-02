@@ -30,12 +30,25 @@ public interface InGameCanvasInterface
     {
         controller.BackToStageSelect();
     }
+    public static void ProceedToNextStage()
+    {
+        controller.ProceedToNextStage();
+    }
+
+
+    private static bool GamePaused = false;
+    public static bool isPaused()
+    {
+        return GamePaused;
+    }
     public static void ShowPauseScreen()
     {
+        GamePaused = true;
         controller.ShowPauseScreen();
     }
     public static void ResumeGame()
     {
+        GamePaused = false;
         controller.ResumeGame();
     }
 }
