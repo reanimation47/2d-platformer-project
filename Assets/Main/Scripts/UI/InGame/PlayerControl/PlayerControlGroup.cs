@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PlayerControlGroup : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class PlayerControlGroup : BasicButtonClass, IPointerDownHandler, IPointerUpHandler
 {
     [HideInInspector] public enum InputType { Left, Right, Jump }
 
@@ -14,7 +14,7 @@ public class PlayerControlGroup : MonoBehaviour, IPointerDownHandler, IPointerUp
     private float _left_dir = -1;
     private float _right_dir = 1;
 
-    public void OnPointerDown(PointerEventData e)
+    public override void ButtonPressed()
     {
         if (_input_type == InputType.Left)
         {
@@ -29,7 +29,7 @@ public class PlayerControlGroup : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     }
 
-    public void OnPointerUp(PointerEventData e)
+    public override void ButtonAction()
     {
         if (ICommon.GetPlayerLastInjectedDir() == _left_dir && _input_type == InputType.Left)
         {
