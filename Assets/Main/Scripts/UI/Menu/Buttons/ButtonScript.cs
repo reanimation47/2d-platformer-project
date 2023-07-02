@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using CommonInfo.CharacterSelect;
 
 public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     [HideInInspector] public enum ButtonType { PlayButton, CharacterSelect }
-    [HideInInspector] public enum Character { Froggy, Dasher }
+    [HideInInspector] public enum Character { Froggy, Astro }
 
     public ButtonType _button_type;
     public Character _character_select;
@@ -62,7 +63,8 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     private void CharacterPicked()
     {
-        Debug.Log("hey");
+        SaveCharacterSelected();
+        //Debug.Log("hey");
         StartCoroutine(ToggleStageSelectScreen());
         //ICanvas.ToggleCharacterSelectionScreen();
     }
@@ -74,6 +76,12 @@ public class ButtonScript : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         ICanvas.ToggleStageSelectScreen();
         yield return new WaitForSeconds(1f);
         ICanvas.ToggleAlphaMask(0f);
+    }
+
+    private void SaveCharacterSelected()
+    {
+        int character_index = (int)_character_select;
+        PlayerPrefs.SetInt(CharacterSelectInfo.CharacterSelected_PlayerPrefs_Key, character_index);
     }
 
 }
