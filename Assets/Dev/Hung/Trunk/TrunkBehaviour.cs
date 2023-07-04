@@ -17,6 +17,8 @@ public class TrunkBehaviour : MonoBehaviour
     public float force;
     public Transform bullet_pos;
 
+    private bool TrunkDied = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +85,7 @@ public class TrunkBehaviour : MonoBehaviour
     //Die logic
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (TrunkDied) { return; }
         if (collision.gameObject == player)
         {
             int collide_state = ICommon.GetCollisionDirection(collision);
@@ -102,6 +105,7 @@ public class TrunkBehaviour : MonoBehaviour
 
     IEnumerator Trunkdies()
     {
+        TrunkDied = true;
         trunkAnimator.SetTrigger("Die");
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
@@ -118,7 +122,7 @@ public class TrunkBehaviour : MonoBehaviour
             bool x_axis_is_facing_towards_player = playerDirection > 0 != enemyDirection > 0;
 
             float y_diff = player.transform.position.y - transform.position.y;
-            bool is_on_same_y_as_player = Mathf.Abs(y_diff) < 2;
+            bool is_on_same_y_as_player = Mathf.Abs(y_diff) < 1.5f;
 
             return x_axis_is_facing_towards_player && is_on_same_y_as_player;
         }

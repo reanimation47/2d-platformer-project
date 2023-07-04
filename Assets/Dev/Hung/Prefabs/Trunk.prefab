@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4099248184545680172
 Transform:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   trunkAnimator: {fileID: 4099248184545680161}
-  bullet: {fileID: 430169793795335664, guid: b57ef7e0121788940a22df56a8400f2a, type: 3}
+  bullet: {fileID: 430169793795335664, guid: 92a883f2d49b04dc19a084e351325412, type: 3}
   force: 15
   bullet_pos: {fileID: 4099248184619779400}
 --- !u!95 &4099248184545680161

@@ -21,6 +21,7 @@ public class PlayerScript : PlayerClass
     {
         if (playerKilled) { return; }
         InitPlayerObject();
+        
     }
 
     private void Start()
@@ -80,6 +81,7 @@ public class PlayerScript : PlayerClass
     private void InitPlayerObject()
     {
         if (playerKilled) { return; }
+        Debug.Log("InitPlayerObject");
         IPlayer.LoadPlayerObject(this.gameObject);
         Player.GetPlayerObject();
     }

@@ -31,6 +31,7 @@ public class BasicButtonClass : MonoBehaviour, IPointerUpHandler, IPointerDownHa
     public void OnPointerDown(PointerEventData e)
     {
         target = 0.8f;
+        ButtonPressed();
     }
 
     public void OnPointerUp(PointerEventData e)
@@ -44,5 +45,9 @@ public class BasicButtonClass : MonoBehaviour, IPointerUpHandler, IPointerDownHa
     public virtual void ButtonAction()
     {
         //override this
+    }
+    public virtual void ButtonPressed()
+    {
+
     }
 }

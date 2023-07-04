@@ -18,8 +18,7 @@ namespace Common.StageConfiguration
                 EnemyType.Mushroom} },
             //Level 2
             {2, new List<EnemyType>() {
-                EnemyType.RockHead,
-                EnemyType.AngryPig} },
+                EnemyType.RockHead} },
             //Level 3
             {3, new List<EnemyType>() {
                 EnemyType.BulletTrunk} },
@@ -29,10 +28,20 @@ namespace Common.StageConfiguration
                 EnemyType.BulletTrunk} }, 
             //Level 4
             {4, new List<EnemyType>() {
-                EnemyType.Mushroom,
-                EnemyType.BulletTrunk,
-                EnemyType.SpikeHead} },
+                EnemyType.Mushroom} },
             {5, new List<EnemyType>() {
+                EnemyType.FatBird,
+                EnemyType.RockHead} },
+            {6, new List<EnemyType>() {
+                EnemyType.BulletTrunk} },
+            {7, new List<EnemyType>() {
+                EnemyType.BulletTrunk,
+                EnemyType.Mushroom} },
+            {8, new List<EnemyType>() {
+                EnemyType.BulletTrunk,
+                EnemyType.Mushroom,
+                EnemyType.RockHead} },
+            {10, new List<EnemyType>() {
                 EnemyType.Mushroom,
                 EnemyType.BlueTurtle,
                 EnemyType.FatBird,

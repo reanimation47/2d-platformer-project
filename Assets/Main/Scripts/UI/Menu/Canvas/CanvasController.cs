@@ -45,6 +45,9 @@ public class CanvasController : MonoBehaviour
     private float _alpha_scaler = 1f;
     private float _alpha_target =1f;
 
+    //hot fix - quick fix to hide button
+    public GameObject StageSelectBackButton;
+
     private void Awake()
     {
         ICanvas.LoadCanvasController(this);
@@ -146,12 +149,14 @@ public class CanvasController : MonoBehaviour
             _mainmenu_target_y = _default_offset;
             _cselection_target_y = 0;
             current_screen = CurrentScreen.characterselect;
+            StageSelectBackButton.SetActive(true);
         }
         else
         {
             _mainmenu_target_y = 0;
             _cselection_target_y = -_default_offset;
             current_screen = CurrentScreen.startmenu;
+            StageSelectBackButton.SetActive(false);
         }
         //is_on_cselection = !is_on_cselection;
     }
@@ -190,6 +195,7 @@ public class CanvasController : MonoBehaviour
 
     private void CanvasIntro()
     {
+        StageSelectBackButton.SetActive(false);
         StartCoroutine(CoCanvasIntro());
     }
     IEnumerator CoCanvasIntro()

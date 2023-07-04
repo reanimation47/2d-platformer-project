@@ -11,16 +11,20 @@ namespace Enum.StageSelect.StageIndex
             {StageIndex.Stage1, "Stage01" },
             {StageIndex.Stage2, "Stage02" },
             {StageIndex.Stage3, "Stage03" },
-            {StageIndex.Stage4, "Stage04" }
+            {StageIndex.Stage4, "Stage04" },
+            {StageIndex.Stage5, "Stage05" },
+            {StageIndex.Stage6, "Stage06" },
+            {StageIndex.Stage7, "Stage07" },
+            {StageIndex.Stage8, "Stage08" }
         };
         private static Dictionary<StageIndex, string> EndlessSceneDictionary = new Dictionary<StageIndex, string>()
         {
-            {StageIndex.Stage1, "Stage01" },
-            {StageIndex.Stage2, "Stage02" },
+            {StageIndex.Stage1, "Stage1000" },
+            {StageIndex.Stage2, "Stage2000" },
             {StageIndex.Stage3, "Stage3000"},
-            {StageIndex.Stage4, "Stage04" },
-            {StageIndex.Stage5, "Stage05" },
-            {StageIndex.Stage6, "Stage06" }
+            {StageIndex.Stage4, "Stage4000" },
+            {StageIndex.Stage5, "Stage5000" },
+            {StageIndex.Stage6, "Stage6000" }
         };
         public static string GetStageAtIndex(int index)
         {
