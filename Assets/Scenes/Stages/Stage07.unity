@@ -126410,10 +126410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skull (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 964544058}
+    - target: {fileID: 78867189002152528, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
 --- !u!1 &412122296
@@ -138753,11 +138753,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 024810eac6df9477685e750d2742310e, type: 3}
---- !u!4 &964544058 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1130351043838512322, guid: 024810eac6df9477685e750d2742310e, type: 3}
-  m_PrefabInstance: {fileID: 964544057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &970892241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6407069858200678659, guid: 63f283b8d779cfd41880405dec596c10, type: 3}
@@ -139035,10 +139030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skull (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 964544058}
+    - target: {fileID: 78867189002152528, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
 --- !u!1 &1855447467
@@ -139363,18 +139358,6 @@ PrefabInstance:
     - target: {fileID: 78867189002152528, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
       propertyPath: m_Name
       value: Skull
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 964544058}
-    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: isImmortal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495583644988264091, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
-      propertyPath: idleMoveSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88550b7852e7b59459e549b6284ba355, type: 3}
